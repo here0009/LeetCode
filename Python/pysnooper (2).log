@@ -1,0 +1,1008 @@
+Starting var:.. self = <__main__.Solution object at 0x000001D873507668>
+Starting var:.. text = 'fbhdbdgadeig...bagbhfcbhfdib'
+21:30:11.252382 call        33     def smallestSubsequence(self, text: str) -> str:
+21:30:11.256375 line        36         len_text = len(text)
+New var:....... len_text = 50
+21:30:11.257455 line        37         index, pre = 0, text[0]
+New var:....... index = 0
+New var:....... pre = 'f'
+21:30:11.257455 line        38         trimmed_text = pre #remove continues repetitive letter in text
+New var:....... trimmed_text = 'f'
+21:30:11.275377 line        39         while index < len_text:
+21:30:11.278394 line        40             if text[index] == pre:
+21:30:11.281387 line        41                 index += 1
+Modified var:.. index = 1
+21:30:11.284491 line        42                 continue
+21:30:11.284491 line        39         while index < len_text:
+21:30:11.284491 line        40             if text[index] == pre:
+21:30:11.284491 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:11.300487 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fb'
+21:30:11.306471 line        45             index += 1
+Modified var:.. index = 2
+21:30:11.312454 line        39         while index < len_text:
+21:30:11.315446 line        40             if text[index] == pre:
+21:30:11.318439 line        43             pre = text[index]
+Modified var:.. pre = 'h'
+21:30:11.325452 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbh'
+21:30:11.331439 line        45             index += 1
+Modified var:.. index = 3
+21:30:11.333536 line        39         while index < len_text:
+21:30:11.333536 line        40             if text[index] == pre:
+21:30:11.333536 line        43             pre = text[index]
+Modified var:.. pre = 'd'
+21:30:11.333536 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhd'
+21:30:11.354952 line        45             index += 1
+Modified var:.. index = 4
+21:30:11.361934 line        39         while index < len_text:
+21:30:11.363928 line        40             if text[index] == pre:
+21:30:11.367919 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:11.372939 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdb'
+21:30:11.378999 line        45             index += 1
+Modified var:.. index = 5
+21:30:11.378999 line        39         while index < len_text:
+21:30:11.378999 line        40             if text[index] == pre:
+21:30:11.378999 line        43             pre = text[index]
+Modified var:.. pre = 'd'
+21:30:11.395828 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbd'
+21:30:11.402808 line        45             index += 1
+Modified var:.. index = 6
+21:30:11.407795 line        39         while index < len_text:
+21:30:11.410836 line        40             if text[index] == pre:
+21:30:11.410836 line        43             pre = text[index]
+Modified var:.. pre = 'g'
+21:30:11.410836 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdg'
+21:30:11.410836 line        45             index += 1
+Modified var:.. index = 7
+21:30:11.431792 line        39         while index < len_text:
+21:30:11.434789 line        40             if text[index] == pre:
+21:30:11.438762 line        43             pre = text[index]
+Modified var:.. pre = 'a'
+21:30:11.444762 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdga'
+21:30:11.451710 line        45             index += 1
+Modified var:.. index = 8
+21:30:11.457731 line        39         while index < len_text:
+21:30:11.460719 line        40             if text[index] == pre:
+21:30:11.464675 line        43             pre = text[index]
+Modified var:.. pre = 'd'
+21:30:11.470658 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgad'
+21:30:11.477391 line        45             index += 1
+Modified var:.. index = 9
+21:30:11.482608 line        39         while index < len_text:
+21:30:11.486598 line        40             if text[index] == pre:
+21:30:11.489617 line        43             pre = text[index]
+Modified var:.. pre = 'e'
+21:30:11.497576 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgade'
+21:30:11.503552 line        45             index += 1
+Modified var:.. index = 10
+21:30:11.509104 line        39         while index < len_text:
+21:30:11.512099 line        40             if text[index] == pre:
+21:30:11.514764 line        43             pre = text[index]
+Modified var:.. pre = 'i'
+21:30:11.521293 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadei'
+21:30:11.528256 line        45             index += 1
+Modified var:.. index = 11
+21:30:11.534240 line        39         while index < len_text:
+21:30:11.537262 line        40             if text[index] == pre:
+21:30:11.540251 line        43             pre = text[index]
+Modified var:.. pre = 'g'
+21:30:11.547205 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig'
+21:30:11.553191 line        45             index += 1
+Modified var:.. index = 12
+21:30:11.560172 line        39         while index < len_text:
+21:30:11.563164 line        40             if text[index] == pre:
+21:30:11.566156 line        43             pre = text[index]
+Modified var:.. pre = 'h'
+21:30:11.572140 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeigh'
+21:30:11.579121 line        45             index += 1
+Modified var:.. index = 13
+21:30:11.585105 line        39         while index < len_text:
+21:30:11.589095 line        40             if text[index] == pre:
+21:30:11.592087 line        43             pre = text[index]
+Modified var:.. pre = 'f'
+21:30:11.598070 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighf'
+21:30:11.604054 line        45             index += 1
+Modified var:.. index = 14
+21:30:11.610051 line        39         while index < len_text:
+21:30:11.613030 line        40             if text[index] == pre:
+21:30:11.616023 line        43             pre = text[index]
+Modified var:.. pre = 'c'
+21:30:11.623004 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfc'
+21:30:11.628988 line        45             index += 1
+Modified var:.. index = 15
+21:30:11.633024 line        39         while index < len_text:
+21:30:11.633024 line        40             if text[index] == pre:
+21:30:11.633024 line        43             pre = text[index]
+Modified var:.. pre = 'e'
+21:30:11.633024 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfce'
+21:30:11.652947 line        45             index += 1
+Modified var:.. index = 16
+21:30:11.658962 line        39         while index < len_text:
+21:30:11.660045 line        40             if text[index] == pre:
+21:30:11.660045 line        43             pre = text[index]
+Modified var:.. pre = 'f'
+21:30:11.660045 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcef'
+21:30:11.676882 line        45             index += 1
+Modified var:.. index = 17
+21:30:11.682867 line        39         while index < len_text:
+21:30:11.685858 line        40             if text[index] == pre:
+21:30:11.688850 line        43             pre = text[index]
+Modified var:.. pre = 'd'
+21:30:11.694834 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefd'
+21:30:11.700818 line        45             index += 1
+Modified var:.. index = 18
+21:30:11.706803 line        39         while index < len_text:
+21:30:11.709795 line        40             if text[index] == pre:
+21:30:11.713783 line        43             pre = text[index]
+Modified var:.. pre = 'g'
+21:30:11.719767 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdg'
+21:30:11.725779 line        45             index += 1
+Modified var:.. index = 19
+21:30:11.732734 line        39         while index < len_text:
+21:30:11.737720 line        40             if text[index] == pre:
+21:30:11.740712 line        43             pre = text[index]
+Modified var:.. pre = 'c'
+21:30:11.747724 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgc'
+21:30:11.753703 line        45             index += 1
+Modified var:.. index = 20
+21:30:11.756779 line        39         while index < len_text:
+21:30:11.756779 line        40             if text[index] == pre:
+21:30:11.756779 line        41                 index += 1
+Modified var:.. index = 21
+21:30:11.756779 line        42                 continue
+21:30:11.774559 line        39         while index < len_text:
+21:30:11.778548 line        40             if text[index] == pre:
+21:30:11.781516 line        41                 index += 1
+Modified var:.. index = 22
+21:30:11.787500 line        42                 continue
+21:30:11.788582 line        39         while index < len_text:
+21:30:11.788582 line        40             if text[index] == pre:
+21:30:11.788582 line        43             pre = text[index]
+Modified var:.. pre = 'h'
+21:30:11.788582 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgch'
+21:30:11.808367 line        45             index += 1
+Modified var:.. index = 23
+21:30:11.814351 line        39         while index < len_text:
+21:30:11.816392 line        40             if text[index] == pre:
+21:30:11.816392 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:11.816392 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgchb'
+21:30:11.832238 line        45             index += 1
+Modified var:.. index = 24
+21:30:11.839219 line        39         while index < len_text:
+21:30:11.842211 line        40             if text[index] == pre:
+21:30:11.845203 line        43             pre = text[index]
+Modified var:.. pre = 'c'
+21:30:11.848258 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgchbc'
+21:30:11.848258 line        45             index += 1
+Modified var:.. index = 25
+21:30:11.848258 line        39         while index < len_text:
+21:30:11.867109 line        40             if text[index] == pre:
+21:30:11.870118 line        43             pre = text[index]
+Modified var:.. pre = 'i'
+21:30:11.877094 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgchbci'
+21:30:11.883088 line        45             index += 1
+Modified var:.. index = 26
+21:30:11.890036 line        39         while index < len_text:
+21:30:11.893033 line        40             if text[index] == pre:
+21:30:11.896024 line        43             pre = text[index]
+Modified var:.. pre = 'g'
+21:30:11.898129 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgchbcig'
+21:30:11.898129 line        45             index += 1
+Modified var:.. index = 27
+21:30:11.913771 line        39         while index < len_text:
+21:30:11.916973 line        40             if text[index] == pre:
+21:30:11.919965 line        43             pre = text[index]
+Modified var:.. pre = 'c'
+21:30:11.926965 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgchbcigc'
+21:30:11.926965 line        45             index += 1
+Modified var:.. index = 28
+21:30:11.926965 line        39         while index < len_text:
+21:30:11.926965 line        40             if text[index] == pre:
+21:30:11.944702 line        43             pre = text[index]
+Modified var:.. pre = 'a'
+21:30:11.950686 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgchbcigca'
+21:30:11.956668 line        45             index += 1
+Modified var:.. index = 29
+21:30:11.962652 line        39         while index < len_text:
+21:30:11.967639 line        40             if text[index] == pre:
+21:30:11.970631 line        43             pre = text[index]
+Modified var:.. pre = 'e'
+21:30:11.976615 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeighfcefdgchbcigcae'
+21:30:11.983624 line        45             index += 1
+Modified var:.. index = 30
+21:30:11.988608 line        39         while index < len_text:
+21:30:11.988608 line        40             if text[index] == pre:
+21:30:11.988608 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:11.988608 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...fdgchbcigcaeb'
+21:30:12.009433 line        45             index += 1
+Modified var:.. index = 31
+21:30:12.016414 line        39         while index < len_text:
+21:30:12.019439 line        40             if text[index] == pre:
+21:30:12.023407 line        43             pre = text[index]
+Modified var:.. pre = 'c'
+21:30:12.027497 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...dgchbcigcaebc'
+21:30:12.027497 line        45             index += 1
+Modified var:.. index = 32
+21:30:12.041964 line        39         while index < len_text:
+21:30:12.044957 line        40             if text[index] == pre:
+21:30:12.047949 line        43             pre = text[index]
+Modified var:.. pre = 'h'
+21:30:12.052023 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...gchbcigcaebch'
+21:30:12.052023 line        45             index += 1
+Modified var:.. index = 33
+21:30:12.052023 line        39         while index < len_text:
+21:30:12.069847 line        40             if text[index] == pre:
+21:30:12.072839 line        43             pre = text[index]
+Modified var:.. pre = 'e'
+21:30:12.078822 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...chbcigcaebche'
+21:30:12.084807 line        45             index += 1
+Modified var:.. index = 34
+21:30:12.090808 line        39         while index < len_text:
+21:30:12.093805 line        40             if text[index] == pre:
+21:30:12.096871 line        43             pre = text[index]
+Modified var:.. pre = 'g'
+21:30:12.103821 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...hbcigcaebcheg'
+21:30:12.109836 line        45             index += 1
+Modified var:.. index = 35
+21:30:12.114904 line        39         while index < len_text:
+21:30:12.114904 line        40             if text[index] == pre:
+21:30:12.114904 line        43             pre = text[index]
+Modified var:.. pre = 'e'
+21:30:12.114904 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...bcigcaebchege'
+21:30:12.134780 line        45             index += 1
+Modified var:.. index = 36
+21:30:12.139766 line        39         while index < len_text:
+21:30:12.144753 line        40             if text[index] == pre:
+21:30:12.147750 line        41                 index += 1
+Modified var:.. index = 37
+21:30:12.154729 line        42                 continue
+21:30:12.157718 line        39         while index < len_text:
+21:30:12.160781 line        40             if text[index] == pre:
+21:30:12.160781 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:12.160781 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...cigcaebchegeb'
+21:30:12.160781 line        45             index += 1
+Modified var:.. index = 38
+21:30:12.182096 line        39         while index < len_text:
+21:30:12.185082 line        40             if text[index] == pre:
+21:30:12.189040 line        43             pre = text[index]
+Modified var:.. pre = 'a'
+21:30:12.195059 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...igcaebchegeba'
+21:30:12.202073 line        45             index += 1
+Modified var:.. index = 39
+21:30:12.208057 line        39         while index < len_text:
+21:30:12.211132 line        40             if text[index] == pre:
+21:30:12.211132 line        43             pre = text[index]
+Modified var:.. pre = 'g'
+21:30:12.211132 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...gcaebchegebag'
+21:30:12.211132 line        45             index += 1
+Modified var:.. index = 40
+21:30:12.232053 line        39         while index < len_text:
+21:30:12.235052 line        40             if text[index] == pre:
+21:30:12.238130 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:12.238130 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...caebchegebagb'
+21:30:12.238130 line        45             index += 1
+Modified var:.. index = 41
+21:30:12.256977 line        39         while index < len_text:
+21:30:12.261964 line        40             if text[index] == pre:
+21:30:12.264973 line        43             pre = text[index]
+Modified var:.. pre = 'h'
+21:30:12.271962 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...aebchegebagbh'
+21:30:12.273005 line        45             index += 1
+Modified var:.. index = 42
+21:30:12.273005 line        39         while index < len_text:
+21:30:12.273005 line        40             if text[index] == pre:
+21:30:12.290834 line        43             pre = text[index]
+Modified var:.. pre = 'f'
+21:30:12.296851 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...ebchegebagbhf'
+21:30:12.299932 line        45             index += 1
+Modified var:.. index = 43
+21:30:12.299932 line        39         while index < len_text:
+21:30:12.299932 line        40             if text[index] == pre:
+21:30:12.299932 line        43             pre = text[index]
+Modified var:.. pre = 'c'
+21:30:12.321094 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...bchegebagbhfc'
+21:30:12.328070 line        45             index += 1
+Modified var:.. index = 44
+21:30:12.334062 line        39         while index < len_text:
+21:30:12.337053 line        40             if text[index] == pre:
+21:30:12.340019 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:12.346028 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...chegebagbhfcb'
+21:30:12.349106 line        45             index += 1
+Modified var:.. index = 45
+21:30:12.349106 line        39         while index < len_text:
+21:30:12.349106 line        40             if text[index] == pre:
+21:30:12.349106 line        43             pre = text[index]
+Modified var:.. pre = 'h'
+21:30:12.371102 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...hegebagbhfcbh'
+21:30:12.377060 line        45             index += 1
+Modified var:.. index = 46
+21:30:12.383044 line        39         while index < len_text:
+21:30:12.387071 line        40             if text[index] == pre:
+21:30:12.390052 line        43             pre = text[index]
+Modified var:.. pre = 'f'
+21:30:12.396135 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...egebagbhfcbhf'
+21:30:12.396135 line        45             index += 1
+Modified var:.. index = 47
+21:30:12.396135 line        39         while index < len_text:
+21:30:12.396135 line        40             if text[index] == pre:
+21:30:12.415032 line        43             pre = text[index]
+Modified var:.. pre = 'd'
+21:30:12.421976 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...gebagbhfcbhfd'
+21:30:12.427077 line        45             index += 1
+Modified var:.. index = 48
+21:30:12.427077 line        39         while index < len_text:
+21:30:12.427077 line        40             if text[index] == pre:
+21:30:12.427077 line        43             pre = text[index]
+Modified var:.. pre = 'i'
+21:30:12.445897 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...ebagbhfcbhfdi'
+21:30:12.451888 line        45             index += 1
+Modified var:.. index = 49
+21:30:12.458880 line        39         while index < len_text:
+21:30:12.461835 line        40             if text[index] == pre:
+21:30:12.464847 line        43             pre = text[index]
+Modified var:.. pre = 'b'
+21:30:12.470811 line        44             trimmed_text += pre
+Modified var:.. trimmed_text = 'fbhdbdgadeig...bagbhfcbhfdib'
+21:30:12.476795 line        45             index += 1
+Modified var:.. index = 50
+21:30:12.483777 line        39         while index < len_text:
+21:30:12.485771 line        46         print("trimmed_text: ",trimmed_text)
+21:30:12.489768 line        48         res = ''
+New var:....... res = ''
+21:30:12.495781 line        49         t_counter = Counter(trimmed_text)
+New var:....... t_counter = Counter({'b': 8, 'h': 6, 'g': 6, 'c': 6, 'f': 5, 'd': 5, 'e': 5, 'a': 3, 'i': 3})
+21:30:12.499841 line        50         letters = sorted(list(set(trimmed_text)))
+New var:....... letters = ['a', 'b', 'c', 'd', 'e', 'f', ...]
+21:30:12.499841 line        51         min_index = 0
+New var:....... min_index = 0
+21:30:12.499841 line        52         print(letters)
+21:30:12.518713 line        53         for i in range(1, len(trimmed_text)):
+New var:....... i = 1
+21:30:12.526653 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+New var:....... curr = 'b'
+Modified var:.. pre = 'f'
+21:30:12.536661 line        55             if t_counter[pre] > 0:
+21:30:12.537731 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.537731 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 8, 'h': 6, 'g': 6, 'c': 6, 'd': 5, 'e': 5, 'f': 4, 'a': 3, 'i': 3})
+21:30:12.537731 line        61                 while min_index < len(letters):
+21:30:12.537731 line        62                     if letters[min_index] not in res:
+21:30:12.556604 line        63                         break
+21:30:12.559598 line        65             print(res, letters[min_index])
+21:30:12.563566 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 2
+21:30:12.570566 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'h'
+Modified var:.. pre = 'b'
+21:30:12.581543 line        55             if t_counter[pre] > 0:
+21:30:12.584537 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.587529 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 7, 'h': 6, 'g': 6, 'c': 6, 'd': 5, 'e': 5, 'f': 4, 'a': 3, 'i': 3})
+21:30:12.594502 line        61                 while min_index < len(letters):
+21:30:12.597500 line        62                     if letters[min_index] not in res:
+21:30:12.600971 line        63                         break
+21:30:12.604504 line        65             print(res, letters[min_index])
+21:30:12.608483 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 3
+21:30:12.614466 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'd'
+Modified var:.. pre = 'h'
+21:30:12.623735 line        55             if t_counter[pre] > 0:
+21:30:12.628723 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.631714 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 7, 'g': 6, 'c': 6, 'h': 5, 'd': 5, 'e': 5, 'f': 4, 'a': 3, 'i': 3})
+21:30:12.637698 line        61                 while min_index < len(letters):
+21:30:12.641687 line        62                     if letters[min_index] not in res:
+21:30:12.644679 line        63                         break
+21:30:12.647671 line        65             print(res, letters[min_index])
+21:30:12.648717 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 4
+21:30:12.648717 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'b'
+Modified var:.. pre = 'd'
+21:30:12.668596 line        55             if t_counter[pre] > 0:
+21:30:12.672585 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.675577 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 7, 'g': 6, 'c': 6, 'h': 5, 'e': 5, 'f': 4, 'd': 4, 'a': 3, 'i': 3})
+21:30:12.677622 line        61                 while min_index < len(letters):
+21:30:12.677622 line        62                     if letters[min_index] not in res:
+21:30:12.677622 line        63                         break
+21:30:12.677622 line        65             print(res, letters[min_index])
+21:30:12.695443 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 5
+21:30:12.704419 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'd'
+Modified var:.. pre = 'b'
+21:30:12.714392 line        55             if t_counter[pre] > 0:
+21:30:12.717384 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.720376 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'g': 6, 'c': 6, 'h': 5, 'e': 5, 'f': 4, 'd': 4, 'a': 3, 'i': 3})
+21:30:12.722421 line        61                 while min_index < len(letters):
+21:30:12.722421 line        62                     if letters[min_index] not in res:
+21:30:12.722421 line        63                         break
+21:30:12.722421 line        65             print(res, letters[min_index])
+21:30:12.741243 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 6
+21:30:12.748257 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'g'
+Modified var:.. pre = 'd'
+21:30:12.758230 line        55             if t_counter[pre] > 0:
+21:30:12.761209 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.764208 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'g': 6, 'c': 6, 'h': 5, 'e': 5, 'f': 4, 'd': 3, 'a': 3, 'i': 3})
+21:30:12.770202 line        61                 while min_index < len(letters):
+21:30:12.771219 line        62                     if letters[min_index] not in res:
+21:30:12.771219 line        63                         break
+21:30:12.771219 line        65             print(res, letters[min_index])
+21:30:12.771219 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 7
+21:30:12.790966 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'a'
+Modified var:.. pre = 'g'
+21:30:12.800970 line        55             if t_counter[pre] > 0:
+21:30:12.802053 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.802053 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'h': 5, 'g': 5, 'e': 5, 'f': 4, 'd': 3, 'a': 3, 'i': 3})
+21:30:12.802053 line        61                 while min_index < len(letters):
+21:30:12.802053 line        62                     if letters[min_index] not in res:
+21:30:12.820003 line        63                         break
+21:30:12.822994 line        65             print(res, letters[min_index])
+21:30:12.826997 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 8
+21:30:12.833021 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'd'
+Modified var:.. pre = 'a'
+21:30:12.833021 line        55             if t_counter[pre] > 0:
+21:30:12.833021 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.849218 line        57                     res += pre
+Modified var:.. res = 'a'
+21:30:12.857221 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'h': 5, 'g': 5, 'e': 5, 'f': 4, 'd': 3, 'i': 3, 'a': -1})
+21:30:12.863215 line        61                 while min_index < len(letters):
+21:30:12.865287 line        62                     if letters[min_index] not in res:
+21:30:12.865287 line        64                     min_index += 1
+Modified var:.. min_index = 1
+21:30:12.865287 line        61                 while min_index < len(letters):
+21:30:12.865287 line        62                     if letters[min_index] not in res:
+21:30:12.881265 line        63                         break
+21:30:12.885281 line        65             print(res, letters[min_index])
+21:30:12.888279 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 9
+21:30:12.896225 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'e'
+Modified var:.. pre = 'd'
+21:30:12.906216 line        55             if t_counter[pre] > 0:
+21:30:12.909223 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.912215 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'h': 5, 'g': 5, 'e': 5, 'f': 4, 'i': 3, 'd': 2, 'a': -1})
+21:30:12.913272 line        61                 while min_index < len(letters):
+21:30:12.913272 line        62                     if letters[min_index] not in res:
+21:30:12.928921 line        63                         break
+21:30:12.932570 line        65             print(res, letters[min_index])
+21:30:12.937148 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 10
+21:30:12.942268 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'i'
+Modified var:.. pre = 'e'
+21:30:12.958309 line        55             if t_counter[pre] > 0:
+21:30:12.962299 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:12.965289 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'h': 5, 'g': 5, 'f': 4, 'e': 4, 'i': 3, 'd': 2, 'a': -1})
+21:30:12.972271 line        61                 while min_index < len(letters):
+21:30:12.975263 line        62                     if letters[min_index] not in res:
+21:30:12.978255 line        63                         break
+21:30:12.982263 line        65             print(res, letters[min_index])
+21:30:12.986234 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 11
+21:30:12.992334 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'g'
+Modified var:.. pre = 'i'
+21:30:12.992334 line        55             if t_counter[pre] > 0:
+21:30:12.992334 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.009448 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'h': 5, 'g': 5, 'f': 4, 'e': 4, 'd': 2, 'i': 2, 'a': -1})
+21:30:13.015431 line        61                 while min_index < len(letters):
+21:30:13.019421 line        62                     if letters[min_index] not in res:
+21:30:13.020469 line        63                         break
+21:30:13.020469 line        65             print(res, letters[min_index])
+21:30:13.020469 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 12
+21:30:13.020469 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'h'
+Modified var:.. pre = 'g'
+21:30:13.046276 line        55             if t_counter[pre] > 0:
+21:30:13.049277 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.052270 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'h': 5, 'f': 4, 'g': 4, 'e': 4, 'd': 2, 'i': 2, 'a': -1})
+21:30:13.059242 line        61                 while min_index < len(letters):
+21:30:13.062207 line        62                     if letters[min_index] not in res:
+21:30:13.065232 line        63                         break
+21:30:13.066243 line        65             print(res, letters[min_index])
+21:30:13.066243 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 13
+21:30:13.066243 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'f'
+Modified var:.. pre = 'h'
+21:30:13.089278 line        55             if t_counter[pre] > 0:
+21:30:13.092306 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.095262 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'f': 4, 'h': 4, 'g': 4, 'e': 4, 'd': 2, 'i': 2, 'a': -1})
+21:30:13.102242 line        61                 while min_index < len(letters):
+21:30:13.105235 line        62                     if letters[min_index] not in res:
+21:30:13.109233 line        63                         break
+21:30:13.112217 line        65             print(res, letters[min_index])
+21:30:13.115208 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 14
+21:30:13.116278 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'c'
+Modified var:.. pre = 'f'
+21:30:13.131935 line        55             if t_counter[pre] > 0:
+21:30:13.136925 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.140918 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 6, 'h': 4, 'g': 4, 'e': 4, 'f': 3, 'd': 2, 'i': 2, 'a': -1})
+21:30:13.143995 line        61                 while min_index < len(letters):
+21:30:13.143995 line        62                     if letters[min_index] not in res:
+21:30:13.143995 line        63                         break
+21:30:13.143995 line        65             print(res, letters[min_index])
+21:30:13.161908 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 15
+21:30:13.168888 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'e'
+Modified var:.. pre = 'c'
+21:30:13.178862 line        55             if t_counter[pre] > 0:
+21:30:13.182851 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.186841 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 5, 'h': 4, 'g': 4, 'e': 4, 'f': 3, 'd': 2, 'i': 2, 'a': -1})
+21:30:13.192858 line        61                 while min_index < len(letters):
+21:30:13.193929 line        62                     if letters[min_index] not in res:
+21:30:13.193929 line        63                         break
+21:30:13.193929 line        65             print(res, letters[min_index])
+21:30:13.193929 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 16
+21:30:13.215048 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'f'
+Modified var:.. pre = 'e'
+21:30:13.224017 line        55             if t_counter[pre] > 0:
+21:30:13.227981 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.230973 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 5, 'h': 4, 'g': 4, 'f': 3, 'e': 3, 'd': 2, 'i': 2, 'a': -1})
+21:30:13.236957 line        61                 while min_index < len(letters):
+21:30:13.239948 line        62                     if letters[min_index] not in res:
+21:30:13.243939 line        63                         break
+21:30:13.244022 line        65             print(res, letters[min_index])
+21:30:13.244022 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 17
+21:30:13.244022 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'd'
+Modified var:.. pre = 'f'
+21:30:13.267218 line        55             if t_counter[pre] > 0:
+21:30:13.270209 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.272256 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 5, 'h': 4, 'g': 4, 'e': 3, 'f': 2, 'd': 2, 'i': 2, 'a': -1})
+21:30:13.272256 line        61                 while min_index < len(letters):
+21:30:13.272256 line        62                     if letters[min_index] not in res:
+21:30:13.272256 line        63                         break
+21:30:13.291088 line        65             print(res, letters[min_index])
+21:30:13.294064 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 18
+21:30:13.301046 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'g'
+Modified var:.. pre = 'd'
+21:30:13.311019 line        55             if t_counter[pre] > 0:
+21:30:13.315010 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.318000 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 5, 'h': 4, 'g': 4, 'e': 3, 'f': 2, 'i': 2, 'd': 1, 'a': -1})
+21:30:13.323984 line        61                 while min_index < len(letters):
+21:30:13.327988 line        62                     if letters[min_index] not in res:
+21:30:13.330979 line        63                         break
+21:30:13.334022 line        65             print(res, letters[min_index])
+21:30:13.334022 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 19
+21:30:13.334022 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'c'
+Modified var:.. pre = 'g'
+21:30:13.355092 line        55             if t_counter[pre] > 0:
+21:30:13.379729 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.379729 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 5, 'h': 4, 'g': 3, 'e': 3, 'f': 2, 'i': 2, 'd': 1, 'a': -1})
+21:30:13.379729 line        61                 while min_index < len(letters):
+21:30:13.379729 line        62                     if letters[min_index] not in res:
+21:30:13.397911 line        63                         break
+21:30:13.400934 line        65             print(res, letters[min_index])
+21:30:13.404898 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 20
+21:30:13.411908 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'h'
+Modified var:.. pre = 'c'
+21:30:13.421872 line        55             if t_counter[pre] > 0:
+21:30:13.424862 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.427882 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'h': 4, 'c': 4, 'g': 3, 'e': 3, 'f': 2, 'i': 2, 'd': 1, 'a': -1})
+21:30:13.428908 line        61                 while min_index < len(letters):
+21:30:13.428908 line        62                     if letters[min_index] not in res:
+21:30:13.428908 line        63                         break
+21:30:13.428908 line        65             print(res, letters[min_index])
+21:30:13.448867 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 21
+21:30:13.455847 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'b'
+Modified var:.. pre = 'h'
+21:30:13.465670 line        55             if t_counter[pre] > 0:
+21:30:13.469624 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.473615 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'b': 6, 'c': 4, 'h': 3, 'g': 3, 'e': 3, 'f': 2, 'i': 2, 'd': 1, 'a': -1})
+21:30:13.479599 line        61                 while min_index < len(letters):
+21:30:13.482608 line        62                     if letters[min_index] not in res:
+21:30:13.485614 line        63                         break
+21:30:13.488606 line        65             print(res, letters[min_index])
+21:30:13.492563 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 22
+21:30:13.499546 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'c'
+Modified var:.. pre = 'b'
+21:30:13.500603 line        55             if t_counter[pre] > 0:
+21:30:13.500603 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.500603 line        57                     res += pre
+Modified var:.. res = 'ab'
+21:30:13.522571 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'c': 4, 'h': 3, 'g': 3, 'e': 3, 'f': 2, 'i': 2, 'd': 1, 'b': -1, 'a': -1})
+21:30:13.528532 line        61                 while min_index < len(letters):
+21:30:13.532533 line        62                     if letters[min_index] not in res:
+21:30:13.535525 line        64                     min_index += 1
+Modified var:.. min_index = 2
+21:30:13.539552 line        61                 while min_index < len(letters):
+21:30:13.539552 line        62                     if letters[min_index] not in res:
+21:30:13.539552 line        63                         break
+21:30:13.539552 line        65             print(res, letters[min_index])
+21:30:13.539552 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 23
+21:30:13.562290 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'i'
+Modified var:.. pre = 'c'
+21:30:13.571523 line        55             if t_counter[pre] > 0:
+21:30:13.575513 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.578504 line        57                     res += pre
+Modified var:.. res = 'abc'
+21:30:13.584489 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'h': 3, 'g': 3, 'e': 3, 'f': 2, 'i': 2, 'd': 1, 'b': -1, 'a': -1, 'c': -1})
+21:30:13.591470 line        61                 while min_index < len(letters):
+21:30:13.594462 line        62                     if letters[min_index] not in res:
+21:30:13.597454 line        64                     min_index += 1
+Modified var:.. min_index = 3
+21:30:13.603800 line        61                 while min_index < len(letters):
+21:30:13.606293 line        62                     if letters[min_index] not in res:
+21:30:13.610284 line        63                         break
+21:30:13.614285 line        65             print(res, letters[min_index])
+21:30:13.619266 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 24
+21:30:13.626241 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'g'
+Modified var:.. pre = 'i'
+21:30:13.631281 line        55             if t_counter[pre] > 0:
+21:30:13.631281 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.631281 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'h': 3, 'g': 3, 'e': 3, 'f': 2, 'd': 1, 'i': 1, 'b': -1, 'a': -1, 'c': -1})
+21:30:13.649188 line        61                 while min_index < len(letters):
+21:30:13.653152 line        62                     if letters[min_index] not in res:
+21:30:13.656161 line        63                         break
+21:30:13.660151 line        65             print(res, letters[min_index])
+21:30:13.663149 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 25
+21:30:13.670108 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'c'
+Modified var:.. pre = 'g'
+21:30:13.680172 line        55             if t_counter[pre] > 0:
+21:30:13.680172 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.680172 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'h': 3, 'e': 3, 'f': 2, 'g': 2, 'd': 1, 'i': 1, 'b': -1, 'a': -1, 'c': -1})
+21:30:13.680172 line        61                 while min_index < len(letters):
+21:30:13.680172 line        62                     if letters[min_index] not in res:
+21:30:13.699023 line        63                         break
+21:30:13.702986 line        65             print(res, letters[min_index])
+21:30:13.705973 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 26
+21:30:13.708084 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'a'
+Modified var:.. pre = 'c'
+21:30:13.708084 line        55             if t_counter[pre] > 0:
+21:30:13.726044 line        65             print(res, letters[min_index])
+21:30:13.729037 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 27
+21:30:13.737009 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'e'
+Modified var:.. pre = 'a'
+21:30:13.746990 line        55             if t_counter[pre] > 0:
+21:30:13.749982 line        65             print(res, letters[min_index])
+21:30:13.753946 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 28
+21:30:13.761273 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'b'
+Modified var:.. pre = 'e'
+21:30:13.768281 line        55             if t_counter[pre] > 0:
+21:30:13.768281 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.768281 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'h': 3, 'f': 2, 'g': 2, 'e': 2, 'd': 1, 'i': 1, 'b': -1, 'a': -1, 'c': -1})
+21:30:13.768281 line        61                 while min_index < len(letters):
+21:30:13.788133 line        62                     if letters[min_index] not in res:
+21:30:13.791146 line        63                         break
+21:30:13.794145 line        65             print(res, letters[min_index])
+21:30:13.798102 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 29
+21:30:13.805115 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'c'
+Modified var:.. pre = 'b'
+21:30:13.806199 line        55             if t_counter[pre] > 0:
+21:30:13.806199 line        65             print(res, letters[min_index])
+21:30:13.806199 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 30
+21:30:13.828547 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'h'
+Modified var:.. pre = 'c'
+21:30:13.834629 line        55             if t_counter[pre] > 0:
+21:30:13.834629 line        65             print(res, letters[min_index])
+21:30:13.834629 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 31
+21:30:13.852069 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'e'
+Modified var:.. pre = 'h'
+21:30:13.863030 line        55             if t_counter[pre] > 0:
+21:30:13.866022 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.870011 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'f': 2, 'h': 2, 'g': 2, 'e': 2, 'd': 1, 'i': 1, 'b': -1, 'a': -1, 'c': -1})
+21:30:13.877009 line        61                 while min_index < len(letters):
+21:30:13.880036 line        62                     if letters[min_index] not in res:
+21:30:13.883027 line        63                         break
+21:30:13.886984 line        65             print(res, letters[min_index])
+21:30:13.890983 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 32
+21:30:13.896105 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'g'
+Modified var:.. pre = 'e'
+21:30:13.896105 line        55             if t_counter[pre] > 0:
+21:30:13.896105 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.912996 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'f': 2, 'h': 2, 'g': 2, 'd': 1, 'e': 1, 'i': 1, 'b': -1, 'a': -1, 'c': -1})
+21:30:13.922087 line        61                 while min_index < len(letters):
+21:30:13.925939 line        62                     if letters[min_index] not in res:
+21:30:13.928919 line        63                         break
+21:30:13.932939 line        65             print(res, letters[min_index])
+21:30:13.935932 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 33
+21:30:13.941989 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'e'
+Modified var:.. pre = 'g'
+21:30:13.941989 line        55             if t_counter[pre] > 0:
+21:30:13.941989 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.960009 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'f': 2, 'h': 2, 'd': 1, 'g': 1, 'e': 1, 'i': 1, 'b': -1, 'a': -1, 'c': -1})
+21:30:13.966044 line        61                 while min_index < len(letters):
+21:30:13.971045 line        62                     if letters[min_index] not in res:
+21:30:13.974026 line        63                         break
+21:30:13.977037 line        65             print(res, letters[min_index])
+21:30:13.980008 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 34
+21:30:13.986988 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'b'
+Modified var:.. pre = 'e'
+21:30:13.992032 line        55             if t_counter[pre] > 0:
+21:30:13.992032 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:13.992032 line        57                     res += pre
+Modified var:.. res = 'abce'
+21:30:14.009942 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'f': 2, 'h': 2, 'd': 1, 'g': 1, 'i': 1, 'b': -1, 'a': -1, 'e': -1, 'c': -1})
+21:30:14.015914 line        61                 while min_index < len(letters):
+21:30:14.019002 line        62                     if letters[min_index] not in res:
+21:30:14.019002 line        63                         break
+21:30:14.019002 line        65             print(res, letters[min_index])
+21:30:14.019002 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 35
+21:30:14.035867 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'a'
+Modified var:.. pre = 'b'
+21:30:14.045871 line        55             if t_counter[pre] > 0:
+21:30:14.048864 line        65             print(res, letters[min_index])
+21:30:14.052821 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 36
+21:30:14.054889 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'g'
+Modified var:.. pre = 'a'
+21:30:14.054889 line        55             if t_counter[pre] > 0:
+21:30:14.073023 line        65             print(res, letters[min_index])
+21:30:14.076013 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 37
+21:30:14.082078 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'b'
+Modified var:.. pre = 'g'
+21:30:14.082078 line        55             if t_counter[pre] > 0:
+21:30:14.082078 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:14.099587 line        57                     res += pre
+Modified var:.. res = 'abceg'
+21:30:14.105594 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'f': 2, 'h': 2, 'd': 1, 'i': 1, 'b': -1, 'g': -1, 'a': -1, 'e': -1, 'c': -1})
+21:30:14.112576 line        61                 while min_index < len(letters):
+21:30:14.116533 line        62                     if letters[min_index] not in res:
+21:30:14.119535 line        63                         break
+21:30:14.122517 line        65             print(res, letters[min_index])
+21:30:14.126507 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 38
+21:30:14.132540 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'h'
+Modified var:.. pre = 'b'
+21:30:14.132540 line        55             if t_counter[pre] > 0:
+21:30:14.132540 line        65             print(res, letters[min_index])
+21:30:14.149896 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 39
+21:30:14.156904 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'f'
+Modified var:.. pre = 'h'
+21:30:14.160962 line        55             if t_counter[pre] > 0:
+21:30:14.160962 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:14.160962 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'f': 2, 'h': 1, 'd': 1, 'i': 1, 'b': -1, 'g': -1, 'a': -1, 'e': -1, 'c': -1})
+21:30:14.179797 line        61                 while min_index < len(letters):
+21:30:14.182788 line        62                     if letters[min_index] not in res:
+21:30:14.185780 line        63                         break
+21:30:14.189769 line        65             print(res, letters[min_index])
+21:30:14.192794 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 40
+21:30:14.200766 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'c'
+Modified var:.. pre = 'f'
+21:30:14.209749 line        55             if t_counter[pre] > 0:
+21:30:14.210762 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:14.210762 line        60                     t_counter[pre] -= 1
+Modified var:.. t_counter = Counter({'f': 1, 'h': 1, 'd': 1, 'i': 1, 'b': -1, 'g': -1, 'a': -1, 'e': -1, 'c': -1})
+21:30:14.210762 line        61                 while min_index < len(letters):
+21:30:14.226386 line        62                     if letters[min_index] not in res:
+21:30:14.229704 line        63                         break
+21:30:14.232696 line        65             print(res, letters[min_index])
+21:30:14.236687 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 41
+21:30:14.238803 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'b'
+Modified var:.. pre = 'c'
+21:30:14.238803 line        55             if t_counter[pre] > 0:
+21:30:14.257117 line        65             print(res, letters[min_index])
+21:30:14.262094 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 42
+21:30:14.269065 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'h'
+Modified var:.. pre = 'b'
+21:30:14.274178 line        55             if t_counter[pre] > 0:
+21:30:14.274178 line        65             print(res, letters[min_index])
+21:30:14.274178 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 43
+21:30:14.292079 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'f'
+Modified var:.. pre = 'h'
+21:30:14.302182 line        55             if t_counter[pre] > 0:
+21:30:14.302182 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:14.302182 line        57                     res += pre
+Modified var:.. res = 'abcegh'
+21:30:14.302182 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'f': 1, 'd': 1, 'i': 1, 'b': -1, 'h': -1, 'g': -1, 'a': -1, 'e': -1, 'c': -1})
+21:30:14.322654 line        61                 while min_index < len(letters):
+21:30:14.325627 line        62                     if letters[min_index] not in res:
+21:30:14.328619 line        63                         break
+21:30:14.333605 line        65             print(res, letters[min_index])
+21:30:14.336623 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 44
+21:30:14.344576 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'd'
+Modified var:.. pre = 'f'
+21:30:14.351644 line        55             if t_counter[pre] > 0:
+21:30:14.351644 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:14.351644 line        57                     res += pre
+Modified var:.. res = 'abceghf'
+21:30:14.351644 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'d': 1, 'i': 1, 'f': -1, 'b': -1, 'h': -1, 'g': -1, 'a': -1, 'e': -1, 'c': -1})
+21:30:14.373575 line        61                 while min_index < len(letters):
+21:30:14.376567 line        62                     if letters[min_index] not in res:
+21:30:14.379608 line        63                         break
+21:30:14.379608 line        65             print(res, letters[min_index])
+21:30:14.379608 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 45
+21:30:14.379608 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'i'
+Modified var:.. pre = 'd'
+21:30:14.403844 line        55             if t_counter[pre] > 0:
+21:30:14.407802 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:14.411791 line        57                     res += pre
+Modified var:.. res = 'abceghfd'
+21:30:14.418771 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'i': 1, 'f': -1, 'b': -1, 'h': -1, 'd': -1, 'g': -1, 'a': -1, 'e': -1, 'c': -1})
+21:30:14.424788 line        61                 while min_index < len(letters):
+21:30:14.427781 line        62                     if letters[min_index] not in res:
+21:30:14.432049 line        64                     min_index += 1
+Modified var:.. min_index = 4
+21:30:14.438073 line        61                 while min_index < len(letters):
+21:30:14.441061 line        62                     if letters[min_index] not in res:
+21:30:14.444056 line        64                     min_index += 1
+Modified var:.. min_index = 5
+21:30:14.451021 line        61                 while min_index < len(letters):
+21:30:14.455009 line        62                     if letters[min_index] not in res:
+21:30:14.458016 line        64                     min_index += 1
+Modified var:.. min_index = 6
+21:30:14.464985 line        61                 while min_index < len(letters):
+21:30:14.467984 line        62                     if letters[min_index] not in res:
+21:30:14.471950 line        64                     min_index += 1
+Modified var:.. min_index = 7
+21:30:14.477931 line        61                 while min_index < len(letters):
+21:30:14.480923 line        62                     if letters[min_index] not in res:
+21:30:14.484912 line        64                     min_index += 1
+Modified var:.. min_index = 8
+21:30:14.490895 line        61                 while min_index < len(letters):
+21:30:14.494885 line        62                     if letters[min_index] not in res:
+21:30:14.498883 line        63                         break
+21:30:14.501866 line        65             print(res, letters[min_index])
+21:30:14.504858 line        53         for i in range(1, len(trimmed_text)):
+Modified var:.. i = 46
+21:30:14.527781 line        54             pre, curr = trimmed_text[i-1], trimmed_text[i]
+Modified var:.. curr = 'b'
+Modified var:.. pre = 'i'
+21:30:14.536775 line        55             if t_counter[pre] > 0:
+21:30:14.536775 line        56                 if t_counter[pre] == 1 or (t_counter[curr] == 1 and curr>pre) or pre == letters[min_index]:
+21:30:14.536775 line        57                     res += pre
+Modified var:.. res = 'abceghfdi'
+21:30:14.536775 line        58                     t_counter[pre] = -1 #do not add to res anymore
+Modified var:.. t_counter = Counter({'f': -1, 'b': -1, 'h': -1, 'd': -1, 'g': -1, 'a': -1, 'e': -1, 'i': -1, 'c': -1})
+21:30:14.557090 line        61                 while min_index < len(letters):
+21:30:14.560070 line        62                     if letters[min_index] not in res:
+21:30:14.563096 line        64                     min_index += 1
+Modified var:.. min_index = 9
+21:30:14.569081 line        61                 while min_index < len(letters):
+21:30:14.572071 line        65             print(res, letters[min_index])
+21:30:14.576031 exception   65             print(res, letters[min_index])
+21:30:14.580042 return      65             print(res, letters[min_index])
+Return value:.. None

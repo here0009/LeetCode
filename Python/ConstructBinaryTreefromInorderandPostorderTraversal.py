@@ -1,0 +1,35 @@
+"""
+Given inorder and postorder traversal of a tree, construct the binary tree.
+
+Note:
+You may assume that duplicates do not exist in the tree.
+
+For example, given
+
+inorder = [9,3,15,20,7]
+postorder = [9,15,7,20,3]
+Return the following binary tree:
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+"""
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+    def buildTree(self, inorder, postorder):
+        if not inorder:
+            return None
+        root_num = postorder.pop()
+        in_index = inorder.index(root_num)
+        root = TreeNode(root_num)
+        root.right = self.buildTree(inorder[in_index+1:],postorder)
+        root.left = self.buildTree(inorder[:in_index],postorder) 
+        return root

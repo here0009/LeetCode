@@ -1,0 +1,21 @@
+Starting var:.. nums = [5, 2, 3, 1]
+Starting var:.. self = <__main__.Solution object at 0x000001F96BEF7668>
+20:19:37.560991 call        24     def sortArray(self, nums):
+20:19:37.560991 line        28         def merge(p,q):
+New var:....... merge = <function Solution.sortArray.<locals>.merge at 0x000001F96BBAC1E0>
+20:19:37.576620 line        48         def mergeSort(k):
+New var:....... mergeSort = <function Solution.sortArray.<locals>.mergeSort at 0x000001F96C0348C8>
+20:19:37.576620 line        62         return mergeSort(nums)
+20:19:37.576620 return      62         return mergeSort(nums)
+Return value:.. [1, 2, 3, 5]
+Starting var:.. nums = [5, 1, 1, 2, 0, 0]
+Starting var:.. self = <__main__.Solution object at 0x000001F96BEF7668>
+20:19:37.592207 call        24     def sortArray(self, nums):
+20:19:37.592207 line        28         def merge(p,q):
+New var:....... merge = <function Solution.sortArray.<locals>.merge at 0x000001F96C034BF8>
+20:19:37.607857 line        48         def mergeSort(k):
+New var:....... mergeSort = <function Solution.sortArray.<locals>.mergeSort at 0x000001F96C034C80>
+20:19:37.607857 line        62         return mergeSort(nums)
+20:19:37.701556 exception   62         return mergeSort(nums)
+20:19:37.701556 return      62         return mergeSort(nums)
+Return value:.. None
