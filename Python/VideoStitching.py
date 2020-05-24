@@ -42,7 +42,7 @@ Note:
 0 <= clips[i][0], clips[i][1] <= 100
 0 <= T <= 100
 """
-class Solution:
+class Solution_1:
     def videoStitching(self, clips, T: int) -> int:
         end, end2, res = -1, 0, 0
         clips = sorted(clips)
@@ -56,7 +56,47 @@ class Solution:
             end2 = max(end2, j)
         return res if end2 >= T else -1
 
+
+class Solution:
+    def videoStitching(self, clips, T: int) -> int:
+        jumps = [0]*(T+1)
+        for start, end in clips:
+            if start > T:
+                continue
+            end = min(T, end)
+            jumps[start] = max(jumps[start], end)  # the furthest distance we can get from start
+
+        start, end, steps = 0, 0, 0
+        while end < T:
+            start, end = end, max(jumps[start:end+1])
+            if start >= end:
+                return -1
+            steps += 1
+        return steps
+
+class Solution:
+    def videoStitching(self,clips, T):
+        prev_end, end, cnt = -1, 0, 0
+        for i, j in sorted(clips):
+            if i > end or end >= T: break
+            if prev_end < i <= end: prev_end, cnt = end, cnt + 1
+            end = max(end, j)
+        return cnt if end >= T else -1
+
 s = Solution()
 clips = [[0,1],[6,8],[0,2],[5,6],[0,4],[0,3],[6,7],[1,3],[4,7],[1,4],[2,5],[2,6],[3,4],[4,5],[5,7],[6,9]]
 T = 9
+print(s.videoStitching(clips,T))
+clips = [[0,1],[1,2]]
+T = 5
+print(s.videoStitching(clips,T))
+clips = [[0,1],[6,8],[0,2],[5,6],[0,4],[0,3],[6,7],[1,3],[4,7],[1,4],[2,5],[2,6],[3,4],[4,5],[5,7],[6,9]]
+T = 9
+print(s.videoStitching(clips,T))
+clips = [[0,4],[2,8]]
+T = 5
+print(s.videoStitching(clips,T))
+
+clips = [[5,7],[1,8],[0,0],[2,3],[4,5],[0,6],[5,10],[7,10]]
+T = 5
 print(s.videoStitching(clips,T))

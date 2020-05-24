@@ -21,6 +21,8 @@ Example 3:
 Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
 Output: false
 """
+
+
 class Solution:
     def wordBreak(self, string: str, wordDict) -> bool:
         self.res = False
@@ -42,7 +44,37 @@ class Solution:
 
         check(string)
         return self.res
+
+
+class Solution:
+    def wordBreak(self, string: str, wordDict) -> bool:
+        wordDict = set(wordDict + [''])
+        length = len(string)
+        max_word_len = max(map(len, wordDict))  # in case wordDict is empty
+        dp = [True] + [False]*length
+        for i in range(length):
+            for j in range(i+1, min(i+max_word_len, length)+1):
+                # print(string[i:j])
+                if dp[i] and string[i:j] in wordDict:  # dp[i] for string[i-1]
+                    dp[j] = True
+        return dp[-1]
+
+class Solution:
+    def wordBreak(self, s, words):
+        ok = [True]
+        max_len = max(map(len,words+['']))
+        words = set(words)
+        for i in range(1, len(s)+1):
+            ok += any(ok[j] and s[j:i] in words for j in range(max(0, i - max_len), i)),
+        return ok[-1]
+
 S = Solution()
+string ="bb"
+wordDict = ["a","b","bbb","bbbb"]
+print(S.wordBreak(string, wordDict))
+string ="a"
+wordDict =[]
+print(S.wordBreak(string, wordDict))
 string = "leetcode"
 wordDict = ["leet", "code"]
 print(S.wordBreak(string, wordDict))
