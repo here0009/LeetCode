@@ -30,21 +30,22 @@ Note:
 0 <= A[i] <= 10000
 0 <= K <= 10000
 """
-"""
-Thoughts:
-the original range is max-min
-after add x the range is min(0, max-min-2K)
-"""
+
 class Solution:
     def smallestRangeI(self, A, K):
         """
         :type A: List[int]
         :type K: int
         :rtype: int
+        Thoughts:
+        the original range is max-min
+        after add x the range is min(0, max-min-2K)
+        wrong answer
         """
         max_A = max(A)
         min_A = min(A)
         return max(0, max_A - min_A - 2*K)
+    
 
 s = Solution()
 A = [1,3,6]

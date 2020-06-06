@@ -56,6 +56,22 @@ class Solution:
 
         return min(max_A - min_A, max(B)-min(B))
 
+
+class Solution:
+    def smallestRangeII(self, A, K: int) -> int:
+        """
+        Thoughts: for every n in A, we try to add K to all A[:i], minus K for all A[i+1:]
+        then updated the max_range of this
+        """
+        A = sorted(A)
+        min_v, max_v = A[0], A[-1]
+        res = max_v - min_v
+        for i in range(len(A) - 1):
+            min_v = min(A[i+1]-K, A[0]+K)
+            max_v = max(A[-1]-K, A[i]+K)
+            res = min(res, max_v - min_v)
+        return res
+
 s = Solution()
 A = [1,3,6]
 K = 3
