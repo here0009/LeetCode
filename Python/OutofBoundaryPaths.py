@@ -45,7 +45,30 @@ class Solution:
             N -= 1
         return res
 
+
+from collections import Counter
+class Solution:
+    def findPaths(self, m: int, n: int, N: int, i: int, j: int) -> int:
+        def inRange(i, j):
+            return 0 <= i < m and 0 <= j < n
+
+        directions = [(0,1),(0,-1),(1,0),(-1,0)]
+        balls = {(i,j):1}
+        res = 0
+        M = 10**9+7
+        while N > 0:
+            balls2 = Counter()
+            for (pos_i, pos_j), v in balls.items():
+                for di, dj in directions:
+                    if inRange(pos_i+di, pos_j+dj):
+                        balls2[(pos_i+di, pos_j+dj)] += v
+                    else:
+                        res = (res + v) % M
+            N -= 1
+            balls = balls2
+        return res
+
 s = Solution()
-# print(s.findPaths(2,2,2,0,0))
-# print(s.findPaths(1,3,3,0,1))
+print(s.findPaths(2,2,2,0,0))
+print(s.findPaths(1,3,3,0,1))
 print(s.findPaths(10,10,11,5,5))       
