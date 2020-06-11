@@ -29,11 +29,33 @@ tokens.length <= 1000
 0 <= tokens[i] < 10000
 0 <= P < 10000
 """
+
+
+from collections import deque
 class Solution:
-    def bagOfTokensScore(self, tokens, P):
-        """
-        :type tokens: List[int]
-        :type P: int
-        :rtype: int
-        """
-        
+    def bagOfTokensScore(self, tokens, P: int) -> int:
+        tokens = sorted(tokens)
+        dq = deque(tokens)
+        res, points = 0, 0
+        while dq and (P >= dq[0] or points):
+            # print(dq, points, res, P)
+            if P >= dq[0]:
+                P -= dq.popleft()
+                points += 1
+            else:
+                P += dq.pop()
+                points -= 1
+            res = max(res, points)
+        return res
+
+S = Solution()
+tokens = [100]
+P = 50
+print(S.bagOfTokensScore(tokens, P))
+tokens = [100,200]
+P = 150
+print(S.bagOfTokensScore(tokens, P))
+tokens = [100,200,300,400]
+P = 200
+print(S.bagOfTokensScore(tokens, P))
+

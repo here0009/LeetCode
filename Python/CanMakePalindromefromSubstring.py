@@ -89,11 +89,49 @@ class Solution:
         res = []
         for left, right, k in queries:
             n = unPnum(left, right)
+
             if n <= k:
                 res.append(True)
             else:
                 res.append(False)
         return res
+
+
+from collections import Counter
+class Solution:
+    def canMakePaliQueries(self, string, queries):
+        def unPnum(left, right):
+            diff_num = 0
+            for j in range(26):
+                diff_num += (matrix[right+1][j] - matrix[left][j]) % 2
+            return diff_num
+
+        length = len(string)
+        matrix = [[0]*26]
+        for i in range(1, length+1):
+            j = ord(string[i-1]) - ord('a')
+            tmp = matrix[-1][:]
+            tmp[j] += 1
+            matrix.append(tmp)
+
+        res = []
+        for left, right, k in queries:
+            n = unPnum(left, right)
+            # print(left, right, n)
+            if n //2 <= k:
+                res.append(True)
+            else:
+                res.append(False)
+        return res
+
+        
+class Solution:
+    def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
+        cnt = [[0] * 26]
+        for i, c in enumerate(s):
+            cnt.append(cnt[i][:])
+            cnt[i + 1][ord(c) - ord('a')] += 1
+        return [sum((cnt[hi + 1][i] - cnt[lo][i]) % 2 for i in range(26)) // 2 <= k for lo, hi, k in queries]
 
 s = Solution()
 string = "abcda"
