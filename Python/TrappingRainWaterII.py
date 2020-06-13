@@ -23,6 +23,9 @@ Constraints:
 """
 
 class Solution:
+    """
+    wrong anwser
+    """
     def trapRainWater(self, heightMap) -> int:
         m = len(heightMap)
         n = len(heightMap[0])
@@ -83,6 +86,44 @@ class Solution:
 
         return res
 
+# https://leetcode.com/problems/trapping-rain-water-ii/discuss/89466/python-solution-with-heap
+# https://leetcode.com/problems/trapping-rain-water-ii/discuss/89495/How-to-get-the-solution-to-2-D-%22Trapping-Rain-Water%22-problem-from-1-D-case
+import heapq
+class Solution:
+    def trapRainWater(self, heightMap) -> int:
+        def inRange(i,j):
+            return 0 <= i < m and 0 <= j < n
+
+        m = len(heightMap)
+        n = len(heightMap[0])
+        visited = [[0]*n for _ in range(m)]
+        hp = []
+        # for row in heightMap:
+        #     print(row)
+        for i in range(m):
+            for j in range(n):
+                if i in {0, m-1} or j in {0, n-1}:
+                    heapq.heappush(hp, (heightMap[i][j], i, j))
+                    visited[i][j] = 1
+        
+        # print(hp)
+        res = 0
+        directions = [(0,1), (0,-1), (1,0), (-1,0)]
+
+        while hp:
+            # print(hp, res)
+            height, i, j = heapq.heappop(hp)
+            for di, dj in directions:
+                ti, tj = i + di, j + dj
+                if inRange(ti, tj) and not visited[ti][tj]:
+                    res += max(0, height - heightMap[ti][tj])
+                    heapq.heappush(hp, (max(height, heightMap[ti][tj]), ti, tj))
+                    visited[ti][tj] = 1
+        return res
+
+
+
+        
 
 S = Solution()
 heightMap = [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]
