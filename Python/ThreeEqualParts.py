@@ -21,17 +21,14 @@ Example 2:
 
 Input: [1,1,0,1,1]
 Output: [-1,-1]
- 
 
 Note:
 
 3 <= A.length <= 30000
 A[i] == 0 or A[i] == 1
 """
+
+
 class Solution:
     def threeEqualParts(self, A):
-        """
-        :type A: List[int]
-        :rtype: List[int]
-        """
         
