@@ -29,4 +29,29 @@ Same with other integers chosen by the first player, the second player will alwa
 
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
-        
+
+        def checkWin(nums, target):
+            # print(nums, target)
+            t_nums = tuple(nums)
+            if t_nums in self.memo:
+                return self.memo[t_nums]
+            if nums[-1] >= target:
+                return True
+            for i in range(len(nums)):
+                if not checkWin(nums[:i] + nums[i + 1:], target - nums[i]): #  choose i, and the other player lose, so I can win
+                    self.memo[t_nums] = True 
+                    return True
+            self.memo[t_nums] = False
+            return False
+
+        self.memo = {}
+        total_nums = (1+maxChoosableInteger)*maxChoosableInteger/2
+        if total_nums < desiredTotal:
+            return False
+        return checkWin(list(range(1, maxChoosableInteger + 1)), desiredTotal)
+
+
+S = Solution()
+maxChoosableInteger = 10
+desiredTotal = 11
+print(S.canIWin(maxChoosableInteger, desiredTotal))
