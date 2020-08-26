@@ -79,19 +79,22 @@ class Solution:
     def subarraysWithKDistinct(self, A, K: int) -> int:
         if K == 0 or len(A) < K:
             return 0
-        left, mid, res = 0, 0, 0 # mid to record the index of left most unique element in counter
+        left, right, res = 0, 0, 0 # right to record the index of left most unique element in counter
         counter = dict()
+        index = 0
         for v in A:
             counter[v] = counter.get(v, 0) + 1
-            if len(counter) == K + 1: # a new elment is added,so replace the last elment of A[mid] 
-                counter.pop(A[mid])
-                mid += 1
-                left = mid
+            if len(counter) == K + 1: # a new elment is added,so replace the last elment of A[right] 
+                counter.pop(A[right])
+                right += 1
+                left = right
             if len(counter) == K:
-                while counter[A[mid]] > 1:
-                    counter[A[mid]] -= 1
-                    mid += 1
-                res += mid - left + 1
+                while counter[A[right]] > 1:
+                    counter[A[right]] -= 1
+                    right += 1
+                res += right - left + 1
+            print(index, left, right, res, counter)
+            index += 1
         return res
 
 

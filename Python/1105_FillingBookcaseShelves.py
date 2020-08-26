@@ -47,25 +47,44 @@ class Solution:
             # print(dp)
         return dp[n]
 
-
+# https://leetcode.com/problems/filling-bookcase-shelves/discuss/323415/simple-Python-DP-solution
 class Solution:
-    def minHeightShelves(self, books: List[List[int]], shelf_width: int) -> int:
+    def minHeightShelves(self, books, shelf_width: int) -> int:
         n = len(books)
-        dp = [math.inf] * (n + 1) # dp[i] indicates min height for books 0 to i - 1
+        dp = [float('inf')] * (n + 1) # dp[i] indicates min height for books 0 to i - 1
         dp[0] = 0 # no book, no height
         # dynamic programming
         for i in range(1, n + 1):
             curr_width, curr_height = shelf_width, 0
             j = i - 1
+            #It is actually that in the beginning of iteration j = i - 1, the very last book is put in a separate row; in the other iterations, more previous books are pushed to this row.
+            # print(dp)
             while j >= 0 and curr_width - books[j][0] >= 0:
                 # put book j into this row & update info
                 curr_width -= books[j][0]
                 curr_height = max(curr_height, books[j][1])
                 dp[i] = min(dp[i], dp[j] + curr_height)
                 j -= 1
+        # print(dp)
         return dp[n]
+# https://leetcode.com/problems/filling-bookcase-shelves/discuss/323291/Python-DP-with-recursion-and-cache
+from functools import lru_cache
+class Solution:
+    def minHeightShelves(self, books, shelf_width: int) -> int:
+        @lru_cache(None)
+        def dp(index, height, width):
+            if width < 0:
+                return float('inf')
+            if index == length:
+                return height
+            b_width, b_height = books[index]
+            add_to_curr = dp(index+1, max(height, b_height), width - b_width)
+            add_to_next = height + dp(index+1, b_height, shelf_width - b_width)
+            return min(add_to_next, add_to_curr)
 
-        
+        length = len(books)
+        return dp(0, 0, shelf_width)
+
 s = Solution()
 books = [[1,1],[2,3],[2,3],[1,1],[1,1],[1,1],[1,2]]
 shelf_width = 4
