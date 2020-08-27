@@ -72,39 +72,24 @@ class Solution:
         return res if res != float('inf') else -1
 
 
-from collections import deque
 class Solution:
     def minSumOfLengths(self, arr, target: int) -> int:
-        dq = deque([])
-        tmp = 0
-        pos_list = []
-        for i, v in enumerate(arr):
-            dq.append((i,v))
-            tmp += v
-            while tmp >= target:
-                if tmp == target:
-                    pos_list.append((dq[0][0], dq[-1][0]))
-                tmp -= dq.popleft()[1]
-            # print(dq)
-        # print(pos_list)
-        # pos_list = sorted(pos_list, key=lambda x:x[1]-x[0])
-        length = len(pos_list)
-        res = []
-        index = 0
-
-        while index < length:
-            curr_i, curr_j = pos_list[index]
-
-            
-
-
-        for i in range(length-1):
-            for j in range(i+1, length):
-                si,ei = pos_list[i]
-                sj,ej = pos_list[j]
-                if ei < sj or ej < si:
-                    res = min(res, ei-si+ej-sj+2)
+        curr = 0
+        left = 0
+        res = float('inf')
+        dp = [float('inf')]*(len(arr)+1)
+        for right, v in enumerate(arr):
+            curr += v
+            while curr > target and left <= right:
+                curr -= arr[left]
+                left += 1
+            if curr == target:
+                dp[right] = min(dp[right-1], right-left+1)
+                res = min(res, dp[left-1]+right-left+1) #dp[-1] was set to be inf, so its ok if left is 0
+            else:
+                dp[right] = dp[right-1]
         return res if res != float('inf') else -1
+
 
 S = Solution()
 arr = [3,2,2,4,3]
