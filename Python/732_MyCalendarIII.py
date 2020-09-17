@@ -48,6 +48,19 @@ class MyCalendarThree:
             self.res = max(self.res, tmp)
         return self.res
 
+import bisect
+class MyCalendarThree:
+    def __init__(self):
+        self.lst = []
+
+    def book(self, start, end):
+        bisect.insort(self.lst, (start, 1))
+        bisect.insort(self.lst, (end, -1))
+        k, tmp = 0, 0
+        for t, n in self.lst:
+            tmp += n
+            k = max(k, tmp)
+        return k
 
 # Your MyCalendarThree object will be instantiated and called as such:
 mc3 = MyCalendarThree()
