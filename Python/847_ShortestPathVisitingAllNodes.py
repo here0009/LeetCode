@@ -28,13 +28,35 @@ Note:
 
 class Solution:
     def shortestPathLength(self, graph) -> int:
-        def dfs(node, step):
-            if len(visited) == length:
-                return step
-            visited.add(node)
-            for next_node in graph[node]:
-                dfs(next_node, step + 1)
-
-        visited = set([0])
+        """
+        because we need to revisit nodes, we can not simply use a set to record the visited nodes. but we can use bitmask to record the visited node
+        rather than start from a single nodes, we start from all the nodes
+        """
         length = len(graph)
+        target = (1 << length) - 1
+        # print(graph)
+        # print(target)
+        bfs = set((i, 1<<i) for i in range(length))
+        seen = set((i, 1<<i) for i in range(length))
+        step = 0
+        while bfs:
+            bfs2 = set()
+            for i, mask in bfs:
+                if mask == target:
+                    return step
+                for j in graph[i]:
+                    m2 = mask | 1<<j
+                    if (j, m2) not in seen:
+                        bfs2.add((j, m2))
+                        seen.add((j, m2))
+            bfs = bfs2
+            step += 1
+        return None
 
+
+S = Solution()
+graph = [[1,2,3],[0],[0],[0]]
+print(S.shortestPathLength(graph))
+
+graph = [[1],[0,2,4],[1,3,4],[2],[1,2]]
+print(S.shortestPathLength(graph))

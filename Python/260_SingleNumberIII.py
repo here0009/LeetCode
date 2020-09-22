@@ -33,7 +33,7 @@ class Solution:
     def singleNumber(self, nums):
         xor = reduce(lambda x,y: x^y, nums)
         # print(xor)
-        sep_bit = xor & -xor #the bit that a and b is different
+        sep_bit = xor & -xor #the bit that a and b is different (6 & -6 => 110 & 010 => 2)
         a, b = 0, 0 # 0 ^ x = x
         for num in nums:
             if num & sep_bit:
@@ -44,5 +44,6 @@ class Solution:
 
 s = Solution()
 nums = [1,2,1,3,2,5]
+
 print(s.singleNumber(nums))
 

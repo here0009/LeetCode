@@ -34,4 +34,57 @@ Explanation: This is neither a IPv4 address nor a IPv6 address.
 """
 class Solution:
     def validIPAddress(self, IP: str) -> str:
-        
+        def checkIPv4(IP):
+            ip_list = IP.split('.')
+            if len(ip_list) != 4:
+                return False
+            for num in ip_list:
+                l_num = len(num)
+                try:
+                    int_num = int(num)
+                except:
+                    return False
+                if int_num > 255 or int_num < 0:
+                    return False
+                if (l_num > 1 and int_num < 10) or (l_num > 2 and int_num < 100):
+                    return False
+            return True
+
+        def checkIPv6(IP):
+            ip_list = IP.split(':')
+            # print(ip_list)
+            if len(ip_list) != 8:
+                return False
+            for num in ip_list:
+                # print(num)
+                l_num = len(num)
+                if l_num > 4 or l_num == 0:
+                    return False
+                if not all([k in letters for k in num]):
+                    return False
+            return True
+
+        letters = set([str(i) for i in range(10)])
+        letters |= set(list('ABCDEF'))
+        letters |= set(list('abcdef'))
+
+        if '.' in IP and checkIPv4(IP):
+            return 'IPv4'
+        elif ':' in IP and checkIPv6(IP):
+            return 'IPv6'
+        return 'Neither'
+
+
+S = Solution()
+# IP = "172.16.254.1"
+# print(S.validIPAddress(IP))
+# IP = "2001:0db8:85a3:0:0:8A2E:0370:7334"
+# print(S.validIPAddress(IP))
+# IP = "256.256.256.256"
+# print(S.validIPAddress(IP))
+
+IP = "20EE:Fb8:85a3:0:0:8A2E:0370:7334"
+print(S.validIPAddress(IP))
+
+IP = "018.16.254.1"
+print(S.validIPAddress(IP))
