@@ -59,10 +59,6 @@ The Graph is connected and all nodes can be visited starting from the given node
 """
 
 # Definition for a Node.
-class Node:
-    def __init__(self, val, neighbors):
-        self.val = val
-        self.neighbors = neighbors
 
 
 from collections import defaultdict
@@ -86,4 +82,153 @@ class Solution:
                         matrix[j][i] = 1
                         bfs2.append(next_n)
 
+
+# Definition for a Node.
+class Node:
+    def __init__(self, val=0, neighbors=None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+
+
+from collections import defaultdict
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        def dfs(node):
+            if not node:
+                return None
+            visited.add(node)
+            v = node.val
+            for n_node in node.neighbors:
+                if n_node not in visited:
+                    edges[v].add(n_node.val)
+                    edges[n_node.val].add(v)
+                    dfs(n_node)
+
+        edges = defaultdict(set)
+        print(edges)
+        nodes = [Node(i) for i in  edges.keys()]
+        for node in nodes:
+            node.neighbors = []
+            
+from collections import defaultdict
+class Solution:
+    def cloneGraph(self, root: 'Node') -> 'Node':
+        """
+        wrong anwer
+        """
+        def dfs(pre, curr):
+            if not curr:
+                return None
+            lst = []
+            for n_node in curr.neighbors:
+                if n_node is not pre:
+                    lst.append(dfs(curr, n_node))
+            return Node(curr.val, lst)
+
+        def addEdge(pre, curr):
+            if not curr:
+                return
+            if pre:
+                curr.neighbors.append(pre)
+                print(pre.val, curr.val)
+            else:
+                print('None', curr.val)
+            for n_node in curr.neighbors:
+                if n_node != pre:
+                    addEdge(curr, n_node)
+
+        res = dfs(None, root)
+        addEdge(None, res)
+        return res
+
+
+class Solution:
+    def cloneGraph(self, root: 'Node') -> 'Node':
+        def dfs(node):
+            if not node:
+                return None
+            if node in seen:
+                return seen[node]
+            cp_node = Node(node.val)
+            seen[node] = cp_node
+            for nxt in node.neighbors:
+                cp_node.neighbors.append(dfs(nxt))
+            return cp_node
+
+        seen = dict()
+        return dfs(root)
+
+
+# 作者：LeetCode-Solution
+# 链接：https://leetcode-cn.com/problems/clone-graph/solution/ke-long-tu-by-leetcode-solution/
+# 来源：力扣（LeetCode）
+# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+class Solution(object):
+
+    def __init__(self):
+        self.visited = {}
+
+    def cloneGraph(self, node):
+        """
+        :type node: Node
+        :rtype: Node
+        """
+        if not node:
+            return node
+
+        # 如果该节点已经被访问过了，则直接从哈希表中取出对应的克隆节点返回
+        if node in self.visited:
+            return self.visited[node]
+
+        # 克隆节点，注意到为了深拷贝我们不会克隆它的邻居的列表
+        clone_node = Node(node.val, [])
+
+        # 哈希表存储
+        self.visited[node] = clone_node
+
+        # 遍历该节点的邻居并更新克隆节点的邻居列表
+        if node.neighbors:
+            clone_node.neighbors = [self.cloneGraph(n) for n in node.neighbors]
+
+        return clone_node
+
+
+# 作者：LeetCode-Solution
+# 链接：https://leetcode-cn.com/problems/clone-graph/solution/ke-long-tu-by-leetcode-solution/
+# 来源：力扣（LeetCode）
+# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+from collections import deque
+class Solution(object):
+
+    def cloneGraph(self, node):
+        """
+        :type node: Node
+        :rtype: Node
+        """
+
+        if not node:
+            return node
+
+        visited = {}
+
+        # 将题目给定的节点添加到队列
+        queue = deque([node])
+        # 克隆第一个节点并存储到哈希表中
+        visited[node] = Node(node.val, [])
+
+        # 广度优先搜索
+        while queue:
+            # 取出队列的头节点
+            n = queue.popleft()
+            # 遍历该节点的邻居
+            for neighbor in n.neighbors:
+                if neighbor not in visited:
+                    # 如果没有被访问过，就克隆并存储在哈希表中
+                    visited[neighbor] = Node(neighbor.val, [])
+                    # 将邻居节点加入队列中
+                    queue.append(neighbor)
+                # 更新当前节点的邻居列表
+                visited[n].neighbors.append(visited[neighbor])
+
+        return visited[node]
 
