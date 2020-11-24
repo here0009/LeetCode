@@ -19,22 +19,23 @@ Note:
 You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range.
 Try to solve it in linear time/space.
 """
+
+
 class Solution:
     def maximumGap(self, nums) -> int:
-        nums_set = set(nums)
-        res = 0
-        if len(nums) == 0:
-            return res
-        init_gap_max = abs(nums[1]-nums[0])
-        for i in range()
-        for n in nums_set:
-            while n-res in nums_set or n+res in nums_set:
-                res += 1
-        return res
+        length = len(nums)
+        nums.sort()
+        if length < 2:
+            return 0
+        return max([nums[i] - nums[i-1] for i in range(1, length)])
+
 
 S = Solution()
 nums = [3,6,9,1]
 print(S.maximumGap(nums))
 
 nums = [10]
+print(S.maximumGap(nums))
+
+nums = [100,3,2,1]
 print(S.maximumGap(nums))

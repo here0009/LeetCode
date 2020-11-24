@@ -35,7 +35,6 @@ class NestedInteger:
        If value is not specified, initializes an empty list.
        Otherwise initializes a single integer equal to value.
        """
-       
 
    def isInteger(self):
        """
@@ -43,20 +42,17 @@ class NestedInteger:
        :rtype bool
        """
 
-
    def add(self, elem):
        """
        Set this NestedInteger to hold a nested list and adds a nested integer elem to it.
        :rtype void
        """
 
-
    def setInteger(self, value):
        """
        Set this NestedInteger to hold a single integer equal to value.
        :rtype void
        """
-
 
    def getInteger(self):
        """
@@ -65,7 +61,6 @@ class NestedInteger:
        :rtype int
        """
 
-
    def getList(self):
        """
        @return the nested list that this NestedInteger holds, if it holds a nested list
@@ -73,6 +68,47 @@ class NestedInteger:
        :rtype List[NestedInteger]
        """
 
+class Solution:
+    def deserialize(self, string: str):
+        stack = []
+        index = 0
+        num = ''
+        while index < len(string):
+            if not string[index].isdigit():
+                index += 1
+                continue
+            while index < len(string) and string[index].isdigit():
+                num += string[index]
+                index += 1
+            if num:
+                stack.append(int(num))
+                num = ''
+            index += 1
+        
+        ni = NestedInteger()
+        while stack:
+            print(stack[-1])
+            ni2 = NestedInteger()
+            ni2.setInteger(stack.pop())
+            if ni.isInteger():
+                ni2.add([ni.getInteger()])
+            else:
+                ni2.add(ni.getList())
+            # ni2.add(ni)
+            ni = ni2
+
+        return ni
+
 
 class Solution:
     def deserialize(self, s: str) -> NestedInteger:
+        if s[0] == '[' and s[-1] == ']':
+            return self.deserialize(s[1:-1])
+        
+
+S = Solution()
+string = "324"
+print(S.deserialize(string))
+
+string = "[123,[456,[789]]]"
+print(S.deserialize(string))
