@@ -99,6 +99,38 @@ class Solution:
                 res += 1
         return res
 
+from functools import lru_cache
+class Solution:
+    def numDecodings(self, string: str) -> int:
+        @lru_cache(None)
+        def dp(string):
+            if string[0] == '0':
+                return 0
+            if len(string) == 1:
+                return 1
+            res = dp(string[:1])*dp(string[1:])
+            if 10 <= int(string[:2]) <= 26:
+                res += dp(string[2:]) if len(string) > 2 else 1
+            return res
+
+        if not string or string[0] == '0':
+            return 0
+        return dp(string)
+
+class Solution:
+    def numDecodings(self, string: str) -> int:
+        if not string or string[0] == '0':
+            return 0
+        length = len(string)
+        dp = [0]*(length+1) #dp[i] stand for the ways to decode string[:i]
+        dp[0], dp[1] = 1, 1
+        for i in range(2, length+1):
+            if string[i-1] != '0':
+                dp[i] += dp[i-1]
+            if 10 <= int(string[i-2:i]) <= 26:
+                dp[i] += dp[i-2]
+        return dp[-1]
+
 
 s = Solution()
 string = '12'
@@ -107,26 +139,33 @@ print(s.numDecodings(string))
 string = '226'
 print(s.numDecodings(string))
 
-string = '1221'
-print(s.numDecodings(string))
+# string = '1221'
+# print(s.numDecodings(string))
 
-string = "0"
-print(s.numDecodings(string))
+# string = "0"
+# print(s.numDecodings(string))
 
-string = "101"
-print(s.numDecodings(string))
+# string = "101"
+# print(s.numDecodings(string))
 
-string = "110"
-print(s.numDecodings(string))
+# string = "110"
+# print(s.numDecodings(string))
 
-string = "01"
-print(s.numDecodings(string))
+# string = "01"
+# print(s.numDecodings(string))
 
-string = "100"
-print(s.numDecodings(string))
+# string = "100"
+# print(s.numDecodings(string))
 
-string = "230"
-print(s.numDecodings(string))
+# string = "230"
+# print(s.numDecodings(string))
 
-string = "301"
+# string = "301"
+# print(s.numDecodings(string))
+
+string = "2611055971756562"
 print(s.numDecodings(string))
+# Output
+# 2
+# Expected
+# 4

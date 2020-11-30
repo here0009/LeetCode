@@ -31,11 +31,40 @@ class Solution:
             dp[i] = 2*dp[i-1] + dp[i-3]
         return dp[-1]
 
+class Solution:
+    def numTilings(self, N: int) -> int:
+        dp = [0]*(N+1)
+        dp[1], dp[2], dp[3] = 1, 2, 5
+        if N < 4:
+            return dp[N]
+        for i in range(4, N+1):
+            dp[i] = dp[i-1] + dp[i-2] + dp[i-3]*2 + 2*(i%2 == 0)
+        return dp[-1]
+
+class Solution:
+    def numTilings(self, N: int) -> int:
+        dp = [1,1,2]
+        M = 10**9 + 7
+        if N <= 2:
+            return dp[N]
+        dp = dp + (N-2)*[0]
+        for i in range(3, N+1):
+            dp[i] = (2*dp[i-1] + dp[i-3]) % M
+        return dp[-1]
+
+        
+class Solution:
+    def numTilings(self, N):
+        a, b, c = 0, 1, 1
+        for i in range(N - 1): a, b, c = b, c, (c + c + a) % int(1e9 + 7)
+        return c
+
 S = Solution()
-for i in range(11):
+for i in range(1, 11):
     print(i, S.numTilings(i))
 
-
+print(10, S.numTilings(10))
+print(4, S.numTilings(4))
 # Your input
 # 10
 # Output

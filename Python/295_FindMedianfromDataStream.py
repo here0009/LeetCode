@@ -27,10 +27,9 @@ If all integer numbers from the stream are between 0 and 100, how would you opti
 If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?
 """
 
-
+# Solution 1 sorted list
 from bisect import insort
 class MedianFinder:
-
     def __init__(self):
         """
         initialize your data structure here.
@@ -49,8 +48,35 @@ class MedianFinder:
         else:
             return (self.nums[d] + self.nums[d-1])/2
 
+# Follow up, Fenwick Tree of counts?
 
 # Your MedianFinder object will be instantiated and called as such:
 # obj = MedianFinder()
 # obj.addNum(num)
 # param_2 = obj.findMedian()
+
+# solution 2, min heap and max heap
+from heapq import heappush, heappop
+class MedianFinder:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.min_heap = []
+        self.max_heap = []
+        
+
+    def addNum(self, num: int) -> None:
+        heappush(self.max_heap, num)
+        heappush(self.min_heap, -heappop(self.max_heap))
+        if len(self.min_heap) > len(self.max_heap):
+            heappush(self.max_heap, -1*heappop(self.min_heap))
+
+        
+
+    def findMedian(self) -> float:
+        if len(self.max_heap) > len(self.min_heap):
+            return self.max_heap[0]
+        else:
+            return (self.max_heap[0] - self.min_heap[0])/2

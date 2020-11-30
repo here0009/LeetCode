@@ -38,6 +38,9 @@ class Solution:
         """
         find the 1st pattern of 13, then update to get 3 max value we encounter, then find 2
         """
+        """
+        wrong answer
+        """
         length = len(nums)
         i = 0
         while i+1 < length and nums[i] >= nums[i+1]: 
@@ -77,6 +80,9 @@ class Node:
 from typing import List
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
+        """
+        wrong answer
+        """
         def insert(node, num):
             if not node:
                 return Node(num)

@@ -53,7 +53,7 @@ class Solution:
             for i,v in bfs:
                 if i == x:
                     return jumps
-                if (i+a, 0) not in visited and i+a not in forbidden and i+a <= 3*b+x:
+                if (i+a, 0) not in visited and i+a not in forbidden and i+a <= 10*b+x:
                     bfs2.append((i+a, 0))
                     visited.add((i+a, 0))
                 if v == 0 and i-b > 0 and (i-b, 1) not in visited and i-b not in forbidden:

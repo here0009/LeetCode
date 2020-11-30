@@ -107,10 +107,7 @@ class Solution:
                 index_dict[tmp] = i
             if tmp - target in index_dict:
                 res = max(res, i - index_dict[tmp - target])
-        
-        # print(index_dict)
-        # self.res = float('inf')
-        # res = dp(0, length)
+
         return length- res if res != -1 else -1
 
 
