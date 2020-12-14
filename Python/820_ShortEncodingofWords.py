@@ -21,29 +21,96 @@ Note:
 Each word has only lowercase letters.
 """
 
+from typing import List
 class TreeNode:
-    def __init__(self):
+    def __repr__(self):
+        return '{}:{}'.format(self.val, self.children.keys()) 
+
+    def __init__(self, val):
+        self.val = val
         self.children = dict()
+
 
 class Tree:
     def __init__(self):
-        self.root = TreeNode()
+        self.root = TreeNode(0)
 
     def insert(self, word):
         node = self.root
         for w in word:
             if w not in node.children:
-                node.children[w] = TreeNode()
+                node.children[w] = TreeNode(w)
             node = node.children[w]
         node.children['#'] = '#'
 
-    def dfs(self, node, depth):
-        for next_node in node.children:
-            
+    def dfs(self, node):
+        if '#' in node.children and len(node.children) == 1:
+            return [node.val]
+        res = []
+        for next_node in node.children.values():
+            if next_node != '#':
+                res.extend(node.val + string for string in self.dfs(next_node))
+        return res
+
 
 class Solution:
     def minimumLengthEncoding(self, words: List[str]) -> int:
         tree = Tree()
         for word in words:
             tree.insert(word[::-1])
+        # print(tree.root)
+        res = []
+        for key in tree.root.children:
+            res.extend(tree.dfs(tree.root.children[key]))
+        # print(res)
+        return len(''.join(res)) + len(res)
 
+
+
+
+from typing import List
+class TreeNode:
+    def __repr__(self):
+        return '{}:{}'.format(self.val, self.children.keys()) 
+
+    def __init__(self, val):
+        self.val = val
+        self.children = dict()
+
+
+class Tree:
+    def __init__(self):
+        self.root = TreeNode(0)
+
+    def insert(self, word):
+        node = self.root
+        for w in word:
+            if w not in node.children:
+                node.children[w] = TreeNode(w)
+            node = node.children[w]
+        node.children['#'] = '#'
+
+    def dfs(self, node):
+        if '#' in node.children and len(node.children) == 1:
+            return [0]
+        res = []
+        for next_node in node.children.values():
+            if next_node != '#':
+                res.extend(1 + k for k in self.dfs(next_node))
+        return res
+
+
+class Solution:
+    def minimumLengthEncoding(self, words: List[str]) -> int:
+        tree = Tree()
+        for word in words:
+            tree.insert(word[::-1])
+        res = tree.dfs(tree.root)
+        # print(res)
+        return sum(res) + len(res)
+
+S = Solution()
+words = ["time", "me", "bell", "kme"]
+print(S.minimumLengthEncoding(words))
+words = ["time", "me", "bell"]
+print(S.minimumLengthEncoding(words))

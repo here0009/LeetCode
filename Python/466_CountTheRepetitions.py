@@ -16,6 +16,50 @@ Return:
 """
 
 
+from functools import lru_cache
+import sys
+sys.setrecursionlimit(10**6)
 class Solution:
     def getMaxRepetitions(self, s1: str, n1: int, s2: str, n2: int) -> int:
-        
+        @lru_cache(None)
+        def dp(i1, r1, i2):
+            # print()
+            if r1 >= n1:
+                return 0
+            j1 = s1.find(s2[i2], i1)
+            if j1 == -1:
+                return dp(0, r1+1, i2)
+            else:
+                r1 += (j1 == len_s1-1)
+                j1 = (j1 + 1) % len_s1
+                return (i2 == len_s2 - 1) + dp(j1, r1, (i2+1)%len_s2)
+
+        len_s1, len_s2 = len(s1), len(s2)
+        return dp(0,0,0) // n2
+
+
+S = Solution()
+s1="acb"
+n1=4
+s2="ab"
+n2=2
+print(S.getMaxRepetitions(s1, n1, s2, n2))
+
+s1="abcdef"
+n1=4
+s2="af"
+n2=2
+print(S.getMaxRepetitions(s1, n1, s2, n2))
+
+s1 = "acb"
+n1 = 1
+s2 = "acb"
+n2 = 1
+print(S.getMaxRepetitions(s1, n1, s2, n2))
+
+
+s1 = "lovelive"
+n1 = 100000
+s2 = "lovelive"
+n2 = 100000
+print(S.getMaxRepetitions(s1, n1, s2, n2))

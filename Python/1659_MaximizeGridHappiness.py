@@ -266,25 +266,25 @@ class Solution:
         @lru_cache(None)
         def dp(index, memo, intro, extro):
             # print(index, memo, intro, extro)
-            if index == m*n or (intro == 0 and extro == 0):
+            if index == m * n or (intro == 0 and extro == 0):
                 return 0
             up, left = memo[0], memo[-1]
             i, j = divmod(index, n)
-            score = dp(index+1, memo[1:] + tuple([0]), intro, extro) 
+            score = dp(index+1, memo[1:] + tuple([0]), intro, extro)
             if intro > 0:
-                diff = 120 + (i>0)*cost[up][1] + (j>0)*cost[left][1]
-                score = max(score, diff+dp(index+1, memo[1:]+tuple([1]), intro-1, extro))
+                diff = 120 + (i>0) * cost[up][1] + (j>0) * cost[left][1]
+                score = max(score, diff+dp(index+1, memo[1:] + tuple([1]), intro - 1, extro))
             if extro > 0:
-                diff = 40 + (i>0)*cost[up][2] + (j>0)*cost[left][2]
-                score = max(score, diff+dp(index+1, memo[1:]+tuple([2]), intro, extro-1))
+                diff = 40 + (i>0) * cost[up][2] + (j>0) * cost[left][2]
+                score = max(score, diff + dp(index+1, memo[1:] + tuple([2]), intro, extro - 1))
             return score
 
         i_loss = -30
         e_gain = 20
-        cost = [[0,0,0],[0,2*i_loss,i_loss+e_gain],[0, i_loss+e_gain, 2*e_gain]]
+        cost = [[0, 0, 0],[0, 2 * i_loss, i_loss + e_gain], [0, i_loss+e_gain, 2 * e_gain]]
         if n > m:
             m, n = n, m
-        return dp(0, tuple([0]*n), introvertsCount, extrovertsCount)
+        return dp(0, tuple([0] * n), introvertsCount, extrovertsCount)
 
 S = Solution()
 m = 2

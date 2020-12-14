@@ -47,6 +47,20 @@ class Solution:
             res.append(heapq.heappop(lst[0]))
         return [v for v, _ in res]
 
+
+from typing import List
+import heapq
+class Solution:
+    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
+        stack = []
+        length = len(nums)
+        for i,v in enumerate(nums):
+            while stack and v < stack[-1] and len(stack) + length - i > k:
+                stack.pop()
+            if len(stack) < k:
+                stack.append(v)
+        return stack
+
 S = Solution()
 nums = [3,5,2,6]
 k = 2

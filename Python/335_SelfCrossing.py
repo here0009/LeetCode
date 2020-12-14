@@ -50,6 +50,44 @@ class Solution:
                 return True
         return False
 
+
+# https://leetcode.com/problems/self-crossing/discuss/79141/Another-python...
+from typing import List
+class Solution:
+    def isSelfCrossing(self, x: List[int]) -> bool:
+        a, b, c, d, e, f = [0]*6
+        for num in x:
+
+            a, b, c, d, e, f = num, a, b, c, d, e
+            # print(a, b, c, d, e, f)
+            if d >= b > 0 and (c <= a or (a >= c-e >= 0 and f+b >= d)):
+                return True
+        return False
+# from typing import List
+# class Solution:
+#     def isSelfCrossing(self, x: List[int]) -> bool:
+#         a, b, c, d, e, f = [-1]*6
+#         for num in x:
+#             # f, e, d, c, b, a = e, d, c, b, a, z
+#             a, b, c, d, e, f = num, a, b, c, d, e
+#             if d >= 0 and (c <= a) and (d >= b):
+#                 return True
+#             if e >= 0 and (c > a) and (d == b) and (e >= c - a):
+#                 return True
+#             if f >= 0 and (c > a) and (d > b) and (e >= c - a and e <= c) and (f >= d - b):
+#                 return True
+#         return False
+
+from typing import List
+class Solution:
+    def isSelfCrossing(self, x: List[int]) -> bool:
+        x = x + [0]*6
+        for i in range(len(x)-6+1):
+            a, b, c, d, e, f = x[i:i+6]
+            if d >= b > 0 and (c <= a or (a >= c-e >= 0 and f+b >=d)):
+                return True
+        return False
+
 S = Solution()
 x = [2,1,1,2]
 print(S.isSelfCrossing(x))
@@ -65,3 +103,14 @@ print(S.isSelfCrossing(x))
 # true
 # Expected
 # false
+x = [3,3,3,2,1,1]
+# Output
+# true
+# Expected
+# false
+x = [1,1,2,1,1]
+# Output
+# false
+# Expected
+# true
+print(S.isSelfCrossing(x))

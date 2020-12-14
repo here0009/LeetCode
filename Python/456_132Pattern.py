@@ -103,6 +103,29 @@ class Solution:
         return False
 
 
+from typing import List
+class Solution:
+    def find132pattern(self, nums: List[int]) -> bool:
+        min_nums = [float('inf')] # min_nums[i] store the min(nums[:i])
+        tmp = nums[0]
+        length = len(nums)
+        for num in nums[1:]:
+            min_nums.append(tmp)
+            tmp = min(tmp, num)
+        # print(nums)
+        # print(min_nums)
+        stack = []
+        for i in range(length-1, 0, -1):
+            # print(stack, i, nums[i])
+            while stack and nums[i] > nums[stack[-1]]:
+                j = stack[-1]
+                if min_nums[i] < nums[stack[-1]]: # if nums[stack[-1]] <= min_nums[i], it can not generate a valid 132 in the remaining rounds
+                    return True
+                stack.pop()
+            stack.append(i)
+        return False
+ 
+
 S = Solution()
 nums = [1,2,3,4]
 print(S.find132pattern(nums))
@@ -112,3 +135,9 @@ nums = [-1,3,2,0]
 print(S.find132pattern(nums))
 nums = [1,0,1,-4,-3]
 print(S.find132pattern(nums))
+nums = [3,5,0,3,4]
+print(S.find132pattern(nums))
+# Output
+# false
+# Expected
+# true
