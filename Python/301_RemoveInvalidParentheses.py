@@ -105,6 +105,68 @@ class Solution:
             res.append(''.join(v for i,v in enumerate(s) if i not in tmp))
         return res
 
+
+class Solution:
+    def removeInvalidParentheses(self, s: str) -> List[str]:
+        """
+        use bfs try to remove every '(' or ')' if we can
+        """
+        def isValid(string):
+            left, right = 0, 0
+            for c in string:
+                if c == '(':
+                    left += 1
+                elif c == ')':
+                    right += 1
+                if right > left:
+                    return False
+            # print(string, left, right)
+            return left == right
+
+        bfs = set([s])
+        flag = False
+        while bfs:
+            res = set()
+            bfs2 = set()
+            for string in bfs:
+                if isValid(string):
+                    flag = True
+                    res.add(string)
+                if flag:
+                    continue
+                for i in range(len(string)):
+                    if string[i] in '()':
+                        bfs2.add(string[:i] + string[i + 1:])
+            if flag:
+                break
+            bfs = bfs2
+        return list(res)
+
+
+class Solution:
+    def removeInvalidParentheses(self, s: str) -> List[str]:
+        """
+        use bfs try to remove every '(' or ')' if we can
+        """
+        def isValid(string):
+            left, right = 0, 0
+            for c in string:
+                if c == '(':
+                    left += 1
+                elif c == ')':
+                    right += 1
+                if right > left:
+                    return False
+            return left == right
+
+        bfs = set([s])
+        while bfs:
+            valid = list(filter(isValid, bfs))
+            if valid:
+                return valid
+            bfs = {string[:i] + string[i + 1:] for string in bfs for i in range(len(string)) if string[i] in '()'}
+        return None
+
 S = Solution()
 s = "()())()"
 print(S.removeInvalidParentheses(s))

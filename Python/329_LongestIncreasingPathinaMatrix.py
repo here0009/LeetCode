@@ -27,5 +27,32 @@ Explanation: The longest increasing path is [3, 4, 5, 6]. Moving diagonally is n
 
 
 from typing import List
+from functools import lru_cache
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+        def inRange(i, j):
+            return 0 <= i < R and 0 <= j < C
+
+        @lru_cache(None)
+        def dp(i, j):
+            res = 0
+            for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                ni, nj = i + di, j + dj
+                if inRange(ni, nj) and matrix[ni][nj] > matrix[i][j]:
+                    res = max(res, dp(ni, nj))
+            return 1 + res
+
+        if not matrix:
+            return 0
+        R, C = len(matrix), len(matrix[0])
+        res = 0
+        for i in range(R):
+            for j in range(C):
+                res = max(res, dp(i, j))
+        return res
+
+S = Solution()
+nums = [[9,9,4],[6,6,8],[2,1,1]] 
+print(S.longestIncreasingPath(nums))
+nums = [[3,4,5],[3,2,6],[2,2,1]] 
+print(S.longestIncreasingPath(nums))

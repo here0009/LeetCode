@@ -67,8 +67,58 @@ class Solution:
             self.index = 0
         return res
 
+
+
+from random import randrange
+from random import choice
+class Solution:
+    """
+    Thoughts: map keys in black list to [self.length, N)]
+    """
+    def __init__(self, N: int, blacklist: List[int]):
+        self.N = N
+        self.length = N - len(blacklist)
+        self.blacklist = set(blacklist)
+        self.dict = dict()
+        # print(self.N, self.length, self.blacklist)
+
+    def pick(self) -> int:
+        rand_num = randrange(0, self.length)
+        # print(rand_num)
+        if rand_num in self.blacklist:
+            if rand_num not in self.dict:
+                tmp = randrange(self.length, self.N)
+                while tmp in self.blacklist:
+                    tmp = randrange(self.length, self.N)
+                self.dict[rand_num] = tmp  # some num in blacklist probably lies in self.legth ~ self.N
+            return self.dict[rand_num]
+        return rand_num
+
+
+from random import randrange
+from random import choice
+class Solution:
+    """
+    Thoughts: map keys in black list to [self.length, N)]
+    """
+    def __init__(self, N: int, blacklist: List[int]):
+        self.N = N
+        self.length = N - len(blacklist)
+        self.blacklist = set(blacklist)
+        self.extra = list(set(range(self.length, N)) - self.blacklist)
+        self.dict = dict()
+        # print(self.N, self.length, self.blacklist)
+
+    def pick(self) -> int:
+        rand_num = randrange(0, self.length)
+        # print(rand_num)
+        if rand_num in self.blacklist:
+            self.dict[rand_num] = choice(self.extra)  # some num in blacklist probably lies in self.legth ~ self.N
+            return self.dict[rand_num]
+        return rand_num
+
 # Your Solution object will be instantiated and called as such:
-obj = Solution(4, [2])
-for i in range(3):
+obj = Solution(4, [1])
+for i in range(10):
     print(obj.pick())
 # param_1 = obj.pick()

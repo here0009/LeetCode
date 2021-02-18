@@ -46,14 +46,44 @@ class TreeNode:
         self.index = index
         self.children = dict()
 
-
+# https://leetcode.com/problems/distinct-echo-substrings/discuss/477935/Python-hash-1068ms
+from collections import defaultdict
 class Solution:
     def distinctEchoSubstrings(self, text: str) -> int:
         """
-        try to use suffix tree
         """
+        len_text = len(text)
+        idx = defaultdict(list)
         res = set()
-        root = TreeNode(0, -1)
-        for i,v in enumerate(text):
-            string = text[i:]
-            _insert(root, string)
+        for i, v in enumerate(text):
+            for j in idx[v][::-1]:
+                if i + i - j > len_text:
+                    break
+                if text[j:i] == text[i:i + i - j]:
+                    res.add(text[j:i])
+            idx[v].append(i)
+        return len(res)
+
+class Solution_1:
+    def distinctEchoSubstrings(self, text: str) -> int:
+        res = set()
+        ix = {}
+        for i, c in enumerate(text):
+            if c in ix:
+                for j in ix[c][::-1]:
+                    if i + i - j > len(text): break # Early stopping 
+                    if text[j:i] == text[i:i+i-j]:
+                        res.add(text[j:i+i-j])
+                ix[c].append(i)
+            else:
+                ix[c] = [i]
+        print(res)
+        return len(res) 
+
+S = Solution()
+text = "abcabcabc"
+print(S.distinctEchoSubstrings(text))
+text = "leetcodeleetcode"
+print(S.distinctEchoSubstrings(text))
+text = 'tkfbgwgqvdsbnukcpxlpifuhbvtdxhhhqurotspohiuwhblnra'
+print(S.distinctEchoSubstrings(text))

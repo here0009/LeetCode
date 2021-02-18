@@ -29,8 +29,13 @@ s2.length == n
 1 <= evil.length <= 50
 All strings consist of lowercase English letters.
 """
+
+
 class Solution:
     def findGoodStrings(self, n: int, s1: str, s2: str, evil: str) -> int:
+        """
+        wrong answer
+        """
         if s2 < s1:
             return 0
         prefix = ''
@@ -52,14 +57,48 @@ class Solution:
                 res -= 26**(n-index-1-1)
         return res
 
-
+# https://leetcode.com/problems/find-all-good-strings/discuss/560841/Python-Digit-DP-%2B-KMP-(Pattern-For-Similar-Questions)
+from functools import lru_cache
 class Solution:
     def findGoodStrings(self, n: int, s1: str, s2: str, evil: str) -> int:
-        """
-        how many string has evil as substring in [s1, s2]
-        calc(s2, evil) - calc(s1, evil)
-        (s2 - s1 + 1) - calc(s2, evil) - calc(s1, evil)
-        """
+        def kmp(pattern):
+            nxt_pos = [0] * len(pattern)
+            j = 0
+            for i in range(1, len(pattern)):
+                while j > 0 and pattern[i] != pattern[j]:
+                    j = nxt_pos[j - 1]
+                if pattern[i] == pattern[j]:
+                    j += 1
+                nxt_pos[i] = j  # patter[i - 1] == pattern[nxt_pos[i - 1] - 1]
+            return nxt_pos
+
+        @lru_cache(None)
+        def dp(idx, preS1, preS2, e):
+            if e == len_evil:
+                return 0
+            if idx == n:
+                return 1
+            start = s1[idx] if preS1 else 'a'
+            end = s2[idx] if preS2 else 'z'
+            res = 0
+            for i in range(ord(start), ord(end) + 1):
+                ch = chr(i)
+                _preS1 = (preS1 and ch == s1[idx])
+                _preS2 = (preS2 and ch == s2[idx])
+                e2 = e
+                while e2 > 0 and evil[e2] != ch:
+                    e2 = nxt_pos[e2 - 1]  # patter[e2 - 1] == pattern[next_pos[e2 - 1] - 1], so e2 = nxt_pos[e2 - 1]
+                if evil[e2] == ch:
+                    e2 += 1
+                res += dp(idx + 1, _preS1, _preS2, e2)
+            res = res % M
+            return res
+
+        len_evil = len(evil)
+        M = 10**9 + 7
+        nxt_pos = kmp(evil)
+        print(nxt_pos)
+        return dp(0, True, True, 0)
 
 
 
@@ -72,7 +111,7 @@ print(S.findGoodStrings(n,s1,s2,evil))
 n = 8
 s1 = "leetcode"
 s2 = "leetgoes"
-evil = "leet"
+evil = "leetleex"
 print(S.findGoodStrings(n,s1,s2,evil))
 n = 2
 s1 = "gx"

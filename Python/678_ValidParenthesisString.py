@@ -106,26 +106,81 @@ class Solution:
         #     return False
         return True
 
+
+from functools import lru_cache
+class Solution:
+    def checkValidString(self, string: str) -> bool:
+        """
+        try to use dp to search the valid string
+        """
+        @lru_cache(None)
+        def dp(index, diff):
+            """
+            index is the index of string
+            diff the counts of '(' - counts of ')'
+            """
+
+            if index == len_s:
+                return diff == 0
+            if abs(diff) > len_s - index:
+                return False
+            c = string[index]
+            index += 1
+            if c == '(':
+                return dp(index, diff + 1)
+            elif c == ')':
+                if diff - 1 < 0:
+                    return False
+                return dp(index, diff - 1)
+            else:
+                return dp(index, diff + 1) or dp(index, diff - 1) or dp(index, diff)
+
+        len_s = len(string)
+        return dp(0, 0)
+
+
+class Solution:
+    def checkValidString(self, string: str) -> bool:
+        left, right = 0, 0
+        for c in string:  # test if every ')' can be mapped with a '(' or '*'
+            if c == ')':
+                right += 1
+            else:
+                left += 1
+            if right > left:
+                return False
+
+        left, right = 0, 0
+        for c in string[::-1]: # test if every '(' can be mapped with a ')' or '*'
+            if c == '(':
+                left += 1
+            else:
+                right += 1
+            if left > right:
+                return False
+        return True
+      
+
 S = Solution()
-# string = "()"
-# print(string, '\t', S.checkValidString(string))
+string = "()"
+print(string, '\t', S.checkValidString(string))
 
-# string ="(*)"
-# print(string, '\t', S.checkValidString(string))
+string ="(*)"
+print(string, '\t', S.checkValidString(string))
 
-# string ="(*))"
-# print(string, '\t', S.checkValidString(string))
+string ="(*))"
+print(string, '\t', S.checkValidString(string))
 
-# string = "((*)(*))((*"
-# print(string, '\t', S.checkValidString(string))
+string = "((*)(*))((*"
+print(string, '\t', S.checkValidString(string))
 
-# string = "(*()"
-# print(string, '\t', S.checkValidString(string))
-# string = "(())((())()()(*)(*()(())())())()()((()())((()))(*"
-# print(string, '\t', S.checkValidString(string))
+string = "(*()"
+print(string, '\t', S.checkValidString(string))
+string = "(())((())()()(*)(*()(())())())()()((()())((()))(*"
+print(string, '\t', S.checkValidString(string))
 
-# string = "(((******))"
-# print(string, '\t', S.checkValidString(string))
+string = "(((******))"
+print(string, '\t', S.checkValidString(string))
 # Output
 # true
 # Expected

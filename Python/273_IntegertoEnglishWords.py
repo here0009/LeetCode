@@ -64,15 +64,7 @@ class Solution:
         self.tens = ["","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"]
         self.thousands = ["","Thousand","Million","Billion"]
 
-    def numberToWords(self, num):
-        if num == 0:
-            return "Zero"
-        res = ""
-        for i in range(len(self.thousands)):
-            if num % 1000 != 0:
-                res = self.helper(num%1000) + self.thousands[i] + " " + res
-            num /= 1000
-        return res.strip()
+
 
     def helper(self, num):
         if num == 0:
@@ -83,6 +75,16 @@ class Solution:
             return self.tens[num/10] + " " + self.helper(num%10)
         else:
             return self.lessThan20[num/100] + " Hundred " + self.helper(num%100)
+            
+    def numberToWords(self, num):
+        if num == 0:
+            return "Zero"
+        res = ""
+        for i in range(len(self.thousands)):
+            if num % 1000 != 0:
+                res = self.helper(num%1000) + self.thousands[i] + " " + res
+            num /= 1000
+        return res.strip()
 
 S = Solution()
 num = 123

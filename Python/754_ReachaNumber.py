@@ -20,8 +20,12 @@ On the second move we step  from 1 to -1.
 On the third move we step from -1 to 2.
 """
 
+
 class Solution:
     def reachNumber(self, target: int) -> int:
+        """
+        wrong answer
+        """
         bfs = set([0])
         # visited = set([0])
         steps = 0
@@ -37,6 +41,25 @@ class Solution:
                         # visited.add(tmp)
                     bfs2.add(tmp)
             bfs = bfs2
+
+# https://leetcode.com/problems/reach-a-number/discuss/257741/python-solution-beat-100-with
+import math
+class Solution:
+    def reachNumber(self, target: int) -> int:
+        """
+        we can reach in dist = (1 + n) * n // 2 in n steps
+        if dist == target, it is n
+        if diff = dist - target, if diff is even, because the num is continous, we can alwasys change the sign of diff/2, to make the sum equal to target
+        if it is odd, we try (n+1, n+2) then
+        """
+        target = abs(target)
+        n = int(math.ceil((math.sqrt(1 + 8 * target) - 1) / 2))
+        total = n * (n + 1) // 2
+        while (total - target) % 2 != 0:
+            n += 1
+            total += n
+        return n
+
 
 S = Solution()
 print(S.reachNumber(3))

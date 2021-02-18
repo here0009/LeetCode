@@ -82,7 +82,62 @@ class Solution:
             else:
                 union(i, j)
         return res
-        
+
+
+from typing import List
+class Solution:
+    def findRedundantDirectedConnection(self, edges: List[List[int]]) -> List[int]:
+        """
+        2 types of invalid graph:
+        1. there is a cycle in the graph, we need to remove the last edge that leads to the cycle
+        2. a node in the graph got two parents, we should remove one of the edges to that edges.
+        there could be an intersection between the 2 types. so in senario 2, we need to check if the first edge leads to a cycle, if it is. we remove it. if not we remove the other.(the last one)
+        """
+        def is_cycle(i, j):
+            while i != j and i in parents:
+                i = parents[i]
+            return i == j
+
+
+        def find(i):
+            if root[i] != i:
+                ri = find(root[i])
+                root[i] = ri
+            return root[i]
+
+        def union(i, j):
+            ri, rj = find(i), find(j)
+            if ri == rj:
+                return False
+            if ri != rj:
+                root[rj] = ri
+            return True
+
+        N = len(edges)
+        parents = dict()
+        candidates = []
+        for i, j in edges:
+            if j not in parents:
+                parents[j] = i
+            else:
+                candidates.append((parents[j], j))
+                candidates.append((i, j))
+
+        if candidates:
+            if is_cycle(*candidates[0]):
+                return candidates[0]
+            else:
+                return candidates[1]
+
+        root = list(range(N + 1))
+
+        for i, j in edges:
+            if find(i) == find(j):
+                return [i, j]
+            else:
+                union(i, j)
+        return None
+
 s = Solution()
 edges = [[1,2], [1,3], [2,3]]
 print(s.findRedundantDirectedConnection(edges))
