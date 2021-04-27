@@ -26,20 +26,26 @@ Constraints:
 -109 <= goal <= 109
 """
 
+
 from typing import List
 from math import ceil
+
+
 class Solution:
+
     def minElements(self, nums: List[int], limit: int, goal: int) -> int:
+
         gap = abs(goal - sum(nums))
         # print(gap)
         return ceil(gap / limit)
 
+
 S = Solution()
-nums = [1,-1,1]
+nums = [1, -1, 1]
 limit = 3
 goal = -4
 print(S.minElements(nums, limit, goal))
-nums = [1,-10,9,1]
+nums = [1, -10, 9, 1]
 limit = 100
 goal = 0
 print(S.minElements(nums, limit, goal))

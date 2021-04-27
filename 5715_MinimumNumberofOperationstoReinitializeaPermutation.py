@@ -9,7 +9,7 @@ You will then assign arr​​​​ to perm.
 
 Return the minimum non-zero number of operations you need to perform on perm to return the permutation to its initial value.
 
- 
+
 
 Example 1:
 
@@ -30,7 +30,6 @@ Example 3:
 
 Input: n = 6
 Output: 4
- 
 
 Constraints:
 
@@ -62,6 +61,7 @@ class Solution:
             perm = convert(perm)
             # print(perm)
         return res
+
 
 S = Solution()
 print(S.reinitializePermutation(2))

@@ -1,3 +1,4 @@
+#! usr/bin/env python
 """
 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
@@ -38,6 +39,7 @@ Output:
 """
 
 
+from typing import List
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
         """

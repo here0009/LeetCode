@@ -49,6 +49,9 @@ At most 105 calls will be made to addElement and calculateMKAverage.
 
 import heapq
 class MKAverage:
+    """
+    wrong answer, we should select the last k elements
+    """
 
     def __init__(self, m: int, k: int):
         self.max_k = []
@@ -57,17 +60,52 @@ class MKAverage:
         self.curr = 0
         self.m = m
         self.k = k
+        self.length = 0
 
     def addElement(self, num: int) -> None:
-        if len(self.nums) < self.m:
-            heapq.heappush(self.nums, num)
+        if len(self.max_k) < self.k:
+            heapq.heappush(self.max_k, num)
         else:
-            heapq.heappush(self.nums, -num)
+            heapq.heappush(self.max_k, num)
+            heapq.heappush(self.nums, heapq.heappop(self.max_k))
+            heapq.heappush(self.min_k, -heapq.heappop(self.nums))
+            if len(self.min_k) > self.k:
+                tmp = -heapq.heappop(self.min_k)
+                heapq.heappush(self.nums, tmp)
+                self.curr += tmp
+                self.length += 1
+        print(num)
+        print(self.max_k, self.min_k, self.nums)
+        print(self.curr, self.length)
+
+    def calculateMKAverage(self) -> int:
+        if self.length < self.m - 2 * self.k:
+            return -1
+        return self.curr // self.length
+
+# https://leetcode.com/problems/finding-mk-average/discuss/1152436/Python-short-solution
+# http://www.grantjenks.com/docs/sortedcontainers/sortedlist.html
+from collections import deque
+from sortedcontainers import SortedList
+class MKAverage:
+
+    def __init__(self, m: int, k: int):
+        self.m = m
+        self.k = k
+        self.dq = deque([])
+        self.slist = SortedList()
+
+    def addElement(self, num: int) -> None:
+        self.dq.append(num)
+        self.slist.add(num)
+        if len(self.dq) > self.m:
+            self.slist.remove(self.dq.popleft())  # Runtime complexity: O(log(n))
 
 
     def calculateMKAverage(self) -> int:
-
-
+        if len(self.dq) < self.m:
+            return -1
+        return sum(self.slist[self.k: -self.k]) // (self.m - 2 * self.k)
 
 # Your MKAverage object will be instantiated and called as such:
 obj = MKAverage(m, k)

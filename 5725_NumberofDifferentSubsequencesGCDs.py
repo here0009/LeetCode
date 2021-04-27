@@ -22,7 +22,7 @@ Example 2:
 
 Input: nums = [5,15,40,5,6]
 Output: 7
- 
+
 
 Constraints:
 
@@ -32,6 +32,8 @@ Constraints:
 
 
 from typing import List
+
+
 class Solution:
     def countDifferentSubsequenceGCDs(self, nums: List[int]) -> int:
         """

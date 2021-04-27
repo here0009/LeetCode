@@ -7,7 +7,7 @@ Return the number of different integers after performing the replacement operati
 
 Two integers are considered different if their decimal representations without any leading zeros are different.
 
- 
+
 
 Example 1:
 
@@ -24,7 +24,7 @@ Input: word = "a1b01c001"
 Output: 1
 Explanation: The three integers "1", "01", and "001" all represent the same integer because
 the leading zeros are ignored when comparing their decimal values.
- 
+
 
 Constraints:
 
@@ -34,12 +34,16 @@ word consists of digits and lowercase English letters.
 
 
 import re
+
+
 class Solution:
+
     def numDifferentIntegers(self, word: str) -> int:
         word_list = re.split('[a-z]+', word)
         nums = set([int(i) for i in word_list if i])
         # print(nums  )
         return len(nums)
+
 
 S = Solution()
 word = "a123bc34d8ef34"

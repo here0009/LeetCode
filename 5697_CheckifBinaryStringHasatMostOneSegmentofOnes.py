@@ -1,7 +1,6 @@
 """
 Given a binary string s ​​​​​without leading zeros, return true​​​ if s contains at most one contiguous segment of ones. Otherwise, return false.
 
- 
 
 Example 1:
 
@@ -12,7 +11,7 @@ Example 2:
 
 Input: s = "110"
 Output: true
- 
+
 
 Constraints:
 
@@ -27,6 +26,7 @@ class Solution:
         ones = [k for k in s.split('0') if len(k) > 0]
         # print(ones)
         return len(ones) == 1
+
 
 S = Solution()
 s = "1001"

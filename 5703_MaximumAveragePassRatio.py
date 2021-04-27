@@ -7,7 +7,7 @@ The pass ratio of a class is equal to the number of students of the class that w
 
 Return the maximum possible average pass ratio after assigning the extraStudents students. Answers within 10-5 of the actual answer will be accepted.
 
- 
+
 
 Example 1:
 
@@ -18,7 +18,7 @@ Example 2:
 
 Input: classes = [[2,4],[3,9],[4,5],[2,10]], extraStudents = 4
 Output: 0.53485
- 
+
 
 Constraints:
 
@@ -32,7 +32,9 @@ classes[i].length == 2
 from typing import List
 import heapq
 class Solution:
+
     def maxAverageRatio(self, classes: List[List[int]], extraStudents: int) -> float:
+
         pq = [((q - p) / p / (p + 1), q, p) for q, p in classes]
         # print(pq)
         heapq.heapify(pq)
@@ -44,10 +46,13 @@ class Solution:
             extraStudents -= 1
         return sum(q / p for _, q, p in pq) / len(pq)
 
+
 S = Solution()
-classes = [[1,2],[3,5],[2,2]]
+
+
+classes = [[1, 2], [3, 5], [2, 2]]
 extraStudents = 2
 print(S.maxAverageRatio(classes, extraStudents))
-classes = [[2,4],[3,9],[4,5],[2,10]]
+classes = [[2, 4], [3, 9], [4, 5], [2, 10]]
 extraStudents = 4
 print(S.maxAverageRatio(classes, extraStudents))

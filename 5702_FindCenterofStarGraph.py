@@ -15,7 +15,7 @@ Example 2:
 
 Input: edges = [[1,2],[5,1],[1,3],[1,4]]
 Output: 1
- 
+
 
 Constraints:
 
@@ -30,6 +30,8 @@ The given edges represent a valid star graph.
 
 from typing import List
 from collections import Counter
+
+
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
         n = len(edges)
@@ -37,13 +39,14 @@ class Solution:
         for p, q in edges:
             counts[p] += 1
             counts[q] += 1
-        for i,v in counts.items():
+        for i, v in counts.items():
             if v == n:
                 return i
         return -1
 
+
 S = Solution()
-edges = [[1,2],[2,3],[4,2]]
+edges = [[1, 2], [2, 3], [4, 2]]
 print(S.findCenter(edges))
-edges = [[1,2],[5,1],[1,3],[1,4]]
+edges = [[1, 2], [5, 1], [1, 3], [1, 4]]
 print(S.findCenter(edges))

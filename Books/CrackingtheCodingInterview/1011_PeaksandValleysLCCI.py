@@ -21,4 +21,36 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
+        sorted_nums = sorted(nums)
+        left, right = 0, len(nums) - 1
+        idx = 0
+        while left <= right:
+            if idx % 2 == 0:
+                nums[idx] = sorted_nums[right]
+                right -= 1
+            else:
+                nums[idx] = sorted_nums[left]
+                left += 1
+            idx += 1
+        # print(nums)
+
+
+from typing import List
+class Solution:
+    def wiggleSort(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        对于每个位置，对于不符合要求的通过交换与其后一位的数值来满足题意。
+        if i is valley , nums[i] > nums[i + 1], we can just swap nums[i] and nums[i + 1]. because i - 1 is peak and nums[i - 1] >= nums[i] have already satisfied by swapping nums[i - 1] and nums[i] or do nothing.
+        so nums[i - 1] also >= nums[i + 1]
+        """
+        for i in range(len(nums) - 1):
+            if i % 2 == 0 and nums[i] < nums[i + 1]:
+                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+            elif i % 2 == 1 and nums[i] > nums[i + 1]:
+                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+        # print(nums)
+
+S = Solution()
+nums = [5, 3, 1, 2, 3]
+print(S.wiggleSort(nums))

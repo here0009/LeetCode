@@ -7,7 +7,6 @@ Return the number of nice divisors of n. Since that number can be too large, ret
 
 Note that a prime number is a natural number greater than 1 that is not a product of two smaller natural numbers. The prime factors of a number n is a list of prime numbers such that their product equals n.
 
- 
 
 Example 1:
 
@@ -20,7 +19,7 @@ Example 2:
 
 Input: primeFactors = 8
 Output: 18
- 
+
 
 Constraints:
 
@@ -51,6 +50,7 @@ class Solution:
             d -= 1
             rmd += 3
         return power(3, d) * rmd % M
+
 
 S = Solution()
 print(S.maxNiceDivisors(5))
