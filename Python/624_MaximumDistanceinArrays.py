@@ -31,9 +31,6 @@ m == arrays.length
 arrays[i] is sorted in ascending order.
 There will be at most 105 integers in all the arrays.
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/maximum-distance-in-arrays
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 
 
@@ -47,6 +44,7 @@ class Solution:
             t_max = max(maxv, t_max)
             t_min = min(minv, t_min)
         return res
+
 
 S = Solution()
 arrays = [[1,2,3],[4,5],[1,2,3]]

@@ -126,6 +126,33 @@ class Solution:
                         return True
         return False
 
+# source：https://leetcode.cn/problems/palindrome-partitioning-iv/solutions/
+
+
+class Solution:
+    def checkPartitioning(self, s: str) -> bool:
+        n = len(s)
+        isPalindrome = [[False] * n for _ in range(n)]
+        for length in range(1, n):
+            for start in range(n - length + 1):
+                end = start + length - 1
+                if length == 1:
+                    isPalindrome[start][end] = True
+                elif length == 2:
+                    isPalindrome[start][end] = s[start] == s[end]
+                else:
+                    isPalindrome[start][end] = s[start] == s[end] and isPalindrome[start + 1][end - 1]
+        for start in range(1, n - 1):
+            if not isPalindrome[0][start - 1]:
+                continue
+            for end in range(start, n - 1):
+                if isPalindrome[start][end] and isPalindrome[end + 1][n - 1]:
+                    return True
+        return False
+
+
+
+
 S = Solution()
 string = "abcbdd"
 print(S.checkPartitioning(string))

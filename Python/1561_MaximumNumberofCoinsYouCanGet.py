@@ -38,6 +38,7 @@ piles.length % 3 == 0
 """
 
 from collections import deque
+from typing import List
 class Solution:
     def maxCoins(self, piles) -> int:
         dq = deque(sorted(piles))
@@ -48,6 +49,12 @@ class Solution:
             dq.popleft()
         return res
 
+class Solution:
+    def maxCoins(self, piles: List[int]) -> int:
+        piles = sorted(piles, reverse=True)        
+        n = len(piles) // 3
+        return sum([piles[i] for i in range(1, 2*n, 2)])
+    
 S = Solution()
 piles = [2,4,1,2,7,8]
 print(S.maxCoins(piles))

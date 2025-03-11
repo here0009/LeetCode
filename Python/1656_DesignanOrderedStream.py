@@ -40,6 +40,7 @@ Each call to insert will have a unique id.
 Exactly n calls will be made to insert.
 """
 
+from typing import List
 
 class OrderedStream:
 
