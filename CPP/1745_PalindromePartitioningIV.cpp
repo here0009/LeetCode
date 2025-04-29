@@ -29,7 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool checkPartitioning(string s) {
+  bool checkPartitioning(string s) {
         int n = s.size();
         vector<vector<bool>> isPalindrome(n, vector<bool>(n));
         for (int length = 1; length < n; length++){

@@ -46,3 +46,7 @@ Practices On Leetcode
 1397. Find All Good Strings
 
 
+```cpp
+new * obj
+delete obj
+```
